@@ -4,5 +4,7 @@ from . import views
 app_name = 'sprints'
 
 urlpatterns = [
-     path('create/<int:id>/',views.createSprint,name='createSprint')
+     path('create/<int:id>/',views.createSprint,name='createSprint'),
+     path('edit/<int:projectId>/<int:sprintId>',views.editSprint,name='editSprint')
+
 ]
