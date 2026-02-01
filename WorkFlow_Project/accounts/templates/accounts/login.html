@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorkFlow Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans">
+    <div class="min-h-screen flex flex-col md:flex-row">
+      <!-- Left side - Brand & Info -->
+      <div class="md:w-1/2 bg-gradient-to-br from-primary-600 to-primary-700 text-white p-8 md:p-12 lg:p-16 flex flex-col justify-between">
+        <div>
+          <a href="{% url 'dashboard:home' %}" class="inline-flex items-center text-white hover:text-gray-100 transition-colors duration-300 mb-12">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Home
+          </a>
+          <div class="max-w-md">
+            <div class="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-8">
+              <i class="fas fa-project-diagram text-2xl"></i>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-6">Welcome Back to <span class="text-primary-100">WorkFlow</span></h1>
+            <p class="text-primary-100 opacity-90 text-lg mb-8">
+              Streamline your projects, collaborate with teams, and manage clients efficiently from a single dashboard.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-sm"></i>
+                </div>
+                <span>Manage multiple projects with ease</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-sm"></i>
+                </div>
+                <span>Track client relationships</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                  <i class="fas fa-check text-sm"></i>
+                </div>
+                <span>Real-time analytics & insights</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="mt-8 text-primary-100 text-sm">
+          <p>© 2024 WorkFlow. All rights reserved.</p>
+        </div> -->
+      </div>
+
+      <!-- Right side - Login Form -->
+      <div class="md:w-1/2 flex items-center justify-center p-8">
+        <div class="w-full max-w-md">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Login In</h2>
+            <p class="text-gray-600">Access your WorkFlow dashboard</p>
+          </div>
+
+          <!-- Messages Display -->
+          {% if messages %}
+          <div class="mb-6 space-y-3">
+            {% for message in messages %}
+            <div class="p-4 rounded-lg border {% if message.tags == 'error' %}bg-red-50 border-red-200 text-red-700{% else %}bg-blue-50 border-blue-200 text-blue-700{% endif %}">
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  {% if message.tags == 'error' %}
+                  <i class="fas fa-exclamation-circle mt-0.5"></i>
+                  {% else %}
+                  <i class="fas fa-info-circle mt-0.5"></i>
+                  {% endif %}
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm font-medium">{{ message }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <!-- Login Form -->
+          <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+            <form action="{% url 'accounts:login' %}" method="POST" class="space-y-6">
+              {% csrf_token %}
+              
+              <!-- Username Field -->
+              <div>
+                <label for="username" class="block text-sm font-medium text-gray-700 mb-2">
+                  <i class="fas fa-user mr-2 text-primary-600"></i>Username
+                </label>
+                <div class="relative">
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
+                    required
+                    class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                  />
+                  <div class="absolute left-3 top-3.5 text-gray-400">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <p class="mt-1 text-xs text-gray-500">Enter your registered username</p>
+              </div>
+
+              <!-- Password Field -->
+              <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                  <i class="fas fa-lock mr-2 text-primary-600"></i>Password
+                </label>
+                <div class="relative">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                    class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                  />
+                  <div class="absolute left-3 top-3.5 text-gray-400">
+                    <i class="fas fa-lock"></i>
+                  </div>
+                <!-- </div>
+                <p class="mt-1 text-xs text-gray-500">Must be at least 8 characters long</p>
+              </div> -->
+
+              <br>
+              <!-- Remember Me & Forgot Password -->
+              <div class="flex items-center justify-between">
+                <!-- <div class="flex items-center">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                  />
+                  <label for="remember-me" class="ml-2 block text-sm text-gray-700">
+                    Remember me
+                  </label>
+                </div> -->
+                <br>
+                <a href="#" class="text-sm font-medium text-primary-600 hover:text-primary-500 transition-colors duration-300">
+                  Forgot password?
+                </a>
+              </div>
+
+              <br>
+              <!-- Submit Button -->
+              <div>
+                <button
+                  type="submit"
+                  name="btn"
+                  id="btn"
+                  class="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-4 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  <i class="fas fa-sign-in-alt mr-2"></i> Login In
+                </button>
+              </div>
+            </form>
+
+            <!-- Divider -->
+            <div class="mt-6">
+              <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                  <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                  <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                </div>
+              </div>
+
+              <!-- Social Login Options -->
+              <div class="mt-6 grid grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-300"
+                >
+                  <i class="fab fa-google text-red-500 mr-2"></i> Google
+                </button>
+                <button
+                  type="button"
+                  class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-300"
+                >
+                  <i class="fab fa-github text-gray-800 mr-2"></i> GitHub
+                </button>
+              </div>
+            </div>
+
+            <!-- Signup Link -->
+            <div class="mt-8 text-center">
+              <p class="text-gray-600">
+                Don't have an account?
+                <a href="{% url 'accounts:signup' %}" class="font-semibold text-primary-600 hover:text-primary-500 transition-colors duration-300 ml-1">
+                  Create account
+                </a>
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                By signing in, you agree to our
+                <a href="#" class="text-primary-600 hover:text-primary-500 transition-colors duration-300">Terms</a>
+                and
+                <a href="#" class="text-primary-600 hover:text-primary-500 transition-colors duration-300">Privacy Policy</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Back to Home Link -->
+          <div class="mt-8 text-center">
+            <a href="{% url 'dashboard:home' %}" class="inline-flex items-center text-gray-600 hover:text-primary-600 transition-colors duration-300">
+              <i class="fas fa-home mr-2"></i> Return to homepage
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

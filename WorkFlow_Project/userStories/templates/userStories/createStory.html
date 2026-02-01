@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User Story - WorkFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+              }
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Main Container -->
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200 shadow-sm">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center">
+                        <a href="{% url 'userStories:displayUserStories' id %}" class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            <span class="font-medium">Back to User Stories</span>
+                        </a>
+                    </div>
+                    <div class="text-lg font-semibold text-gray-800">
+                        <i class="fas fa-plus-circle mr-2 text-primary-600"></i> Create User Story
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Page Header -->
+            <div class="mb-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-800">Create New User Story</h1>
+                        <p class="text-gray-600 mt-2">Define a user story to capture specific requirements</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="max-w-2xl mx-auto">
+                <!-- Form Card -->
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                    <!-- Form Header -->
+                    <div class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200">
+                        <h2 class="text-xl font-semibold text-gray-800 flex items-center">
+                            <i class="fas fa-book mr-2 text-primary-600"></i> User Story Details
+                        </h2>
+                        <p class="text-sm text-gray-600 mt-1">Define what the user needs and why</p>
+                    </div>
+
+                    <!-- Form Content -->
+                    <div class="p-6 md:p-8">
+                        <form action="{% url 'userStories:createStory' id %}" method="POST" class="space-y-6">
+                            {% csrf_token %}
+                            
+                            <!-- User Story Description -->
+                            <div>
+                                <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-align-left mr-2 text-primary-600"></i> User Story Description
+                                        <span class="ml-1 text-red-500">*</span>
+                                    </span>
+                                </label>
+                                <div class="relative">
+                                    <textarea
+                                        id="description"
+                                        name="description"
+                                        rows="4"
+                                        placeholder="As a [type of user], I want [some goal] so that [some reason]..."
+                                        required
+                                        class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                                    ></textarea>
+                                    <div class="absolute left-3 top-3.5 text-gray-400">
+                                        <i class="fas fa-comment-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <p class="text-xs text-gray-500">Use the standard format: "As a [user], I want [action], so that [benefit]"</p>
+                                </div>
+                            </div>                           
+
+                       
+
+                            
+
+                            <!-- Form Actions -->
+                            <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                                <button
+                                    type="submit"
+                                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center"
+                                >
+                                    <i class="fas fa-save mr-2"></i> Create User Story
+                                </button>
+                                
+                                <a href="{% url 'userStories:displayUserStories' id %}" class="w-full sm:w-auto">
+                                    <button
+                                        type="button"
+                                        class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center"
+                                    >
+                                        <i class="fas fa-times mr-2"></i> Cancel
+                                    </button>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- User Story Guidelines -->
+                <div class="mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-6">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Writing Effective User Stories</h3>
+                            <ul class="text-gray-600 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                                    <span><strong>Use the standard format:</strong> "As a [user], I want [action], so that [benefit]"</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                                    <span><strong>Keep it simple:</strong> One story should represent a single piece of functionality</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                                    <span><strong>Be specific:</strong> Clearly define who, what, and why</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                                    <span><strong>Add acceptance criteria:</strong> Define what "done" looks like</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Stories -->
+                <div class="mt-8 bg-white rounded-xl border border-gray-200 p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-lightbulb mr-2 text-primary-600"></i> Example User Stories
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-sm text-gray-700 font-medium">"As a registered user, I want to reset my password, so that I can regain access to my account if I forget it."</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-sm text-gray-700 font-medium">"As an admin, I want to export user data to CSV, so that I can analyze it in external tools."</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-sm text-gray-700 font-medium">"As a customer, I want to filter products by price range, so that I can find items within my budget."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-12 border-t border-gray-200 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-500 text-sm mb-4 md:mb-0">
+                        &copy; WorkFlow User Stories • Sprint #{{ id }}
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <a href="{% url 'userStories:displayUserStories' id %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">All Stories</a>
+                        <span class="text-gray-300">|</span>
+                       
+                        <a href="{% url 'dashboard:dashboard' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
