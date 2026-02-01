@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects - WorkFlow</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               primary: {
-                50: '#eff6ff',
-                100: '#dbeafe',
-                500: '#3b82f6',
-                600: '#2563eb',
-                700: '#1d4ed8',
-              }
-            }
-          }
-        }
-      }
+                50: "#eff6ff",
+                100: "#dbeafe",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+              },
+            },
+          },
+        },
+      };
     </script>
   </head>
   <body class="bg-gray-50 font-sans">
@@ -32,17 +35,31 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center py-4">
             <div class="flex items-center">
-              <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-primary-600 to-primary-700 mr-3"></div>
+              <div
+                class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white mb-6 shadow-lg"
+              >
+                <i class="fas fa-project-diagram text-2xl"></i>
+              </div>
               <h1 class="text-xl font-bold text-gray-800">WorkFlow Projects</h1>
             </div>
             <div class="flex items-center space-x-4">
-              <a href="{% url 'dashboard:home' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300">
-                <button class="flex items-center text-sm bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-lg transition-colors duration-300">
+              <a
+                href="{% url 'dashboard:home' %}"
+                class="text-gray-600 hover:text-primary-600 transition-colors duration-300"
+              >
+                <button
+                  class="flex items-center text-sm bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-lg transition-colors duration-300"
+                >
                   <i class="fas fa-home mr-2"></i> Home
                 </button>
               </a>
-              <a href="{% url 'dashboard:dashboard' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300">
-                <button class="flex items-center text-sm bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-lg transition-colors duration-300">
+              <a
+                href="{% url 'dashboard:dashboard' %}"
+                class="text-gray-600 hover:text-primary-600 transition-colors duration-300"
+              >
+                <button
+                  class="flex items-center text-sm bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-lg transition-colors duration-300"
+                >
                   <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
                 </button>
               </a>
@@ -55,14 +72,25 @@
       <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Page Header -->
         <div class="mb-8">
-          <div class="flex flex-col md:flex-row md:items-center justify-between">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between"
+          >
             <div>
-              <h1 class="text-3xl font-bold text-gray-800">Project Management</h1>
-              <p class="text-gray-600 mt-2">Track and manage all your projects in one place</p>
+              <h1 class="text-3xl font-bold text-gray-800">
+                Project Management
+              </h1>
+              <p class="text-gray-600 mt-2">
+                Track and manage all your projects in one place
+              </p>
             </div>
             <div class="mt-4 md:mt-0">
-              <a href="{% url 'projects:addProject' %}" class="inline-flex items-center">
-                <button class="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center">
+              <a
+                href="{% url 'projects:addProject' %}"
+                class="inline-flex items-center"
+              >
+                <button
+                  class="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center"
+                >
                   <i class="fas fa-plus mr-2"></i> Add New Project
                 </button>
               </a>
@@ -73,23 +101,32 @@
         <!-- Search Bar -->
         <div class="mb-8">
           <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between mb-4"
+            >
               <div>
-                <h2 class=" text-lg font-semibold text-gray-800 flex items-center">
-                  <i class="fas fa-search mr-2 text-primary-600"></i> Search Projects
+                <h2
+                  class="text-lg font-semibold text-gray-800 flex items-center"
+                >
+                  <i class="fas fa-search mr-2 text-primary-600"></i> Search
+                  Projects
                 </h2>
-                <p class="text-sm text-gray-600 mt-1">Find projects by title or description</p>
+                <p class="text-sm text-gray-600 mt-1">
+                  Find projects by title or description
+                </p>
               </div>
               <div class="mt-2 md:mt-0 text-sm text-gray-500">
-                {% if projects %}
-                  {{ projects|length }} project{% if projects|length != 1 %}s{% endif %} found
-                {% else %}
-                  No projects
-                {% endif %}
+                {% if projects %} {{ projects|length }} project {% if
+                projects|length != 1 %} s {% endif %} found {% else %} No
+                projects {% endif %}
               </div>
             </div>
-            
-            <form action="{% url 'projects:searchProject' %}" method="GET" class="w-full">
+
+            <form
+              action="{% url 'projects:searchProject' %}"
+              method="GET"
+              class="w-full"
+            >
               <div class="relative">
                 <input
                   type="text"
@@ -98,19 +135,26 @@
                   placeholder="Search by project title or description"
                   class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
                 />
-                <div class=" absolute left-3 top-3.5 text-gray-400">
+                <div class="absolute left-3 top-3.5 text-gray-400">
                   <i class="fas fa-search"></i>
                 </div>
                 <button
                   type="submit"
-                  class="  absolute right-3 top-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                  class="absolute right-3 top-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                >
                   <i class="fas fa-search mr-2"></i> Search
                 </button>
               </div>
               {% if q %}
               <div class="mt-3 flex items-center">
-                <span class="text-sm text-gray-600">Search results for: <span class="font-medium">"{{ q }}"</span></span>
-                <a href="{% url 'projects:showProjects' %}" class="ml-4 text-sm text-primary-600 hover:text-primary-500 transition-colors duration-300">
+                <span class="text-sm text-gray-600"
+                  >Search results for:
+                  <span class="font-medium">"{{ q }}"</span></span
+                >
+                <a
+                  href="{% url 'projects:showProjects' %}"
+                  class="ml-4 text-sm text-primary-600 hover:text-primary-500 transition-colors duration-300"
+                >
                   <i class="fas fa-times mr-1"></i> Clear search
                 </a>
               </div>
@@ -124,12 +168,18 @@
         <!-- Projects Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {% for project in projects %}
-          <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div
+            class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
             <!-- Project Header -->
-            <div class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200">
+            <div
+              class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200"
+            >
               <div class="flex justify-between items-start">
                 <div>
-                  <h3 class="text-lg font-semibold text-gray-800 truncate">{{ project.title }}</h3>
+                  <h3 class="text-lg font-semibold text-gray-800 truncate">
+                    {{ project.title }}
+                  </h3>
                   <!-- <div class="flex items-center mt-1">
                     <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs mr-2">
                       <i class="fas fa-project-diagram"></i>
@@ -139,68 +189,90 @@
                 </div>
                 <div class="text-right">
                   {% if project.status %}
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  <span
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                  >
                     <i class="fas fa-circle text-xs mr-1"></i> Active
                   </span>
                   {% else %}
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                  <span
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"
+                  >
                     <i class="fas fa-circle text-xs mr-1"></i> Inactive
                   </span>
                   {% endif %}
                 </div>
               </div>
             </div>
-            
+
             <!-- Project Content -->
             <div class="p-6">
               <!-- Description -->
               <div class="mb-4">
-                <p class="text-gray-600 text-sm line-clamp-2">{{ project.description|default:"No description provided" }}</p>
+                <p class="text-gray-600 text-sm line-clamp-2">
+                  {{ project.description|default:"No description provided" }}
+                </p>
               </div>
-              
+
               <!-- Project Details -->
               <div class="space-y-3 mb-6">
                 <!-- Budget -->
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
-                    <div class="w-8 h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-3">
+                    <div
+                      class="w-8 h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-3"
+                    >
                       <i class="fas fa-dollar-sign"></i>
                     </div>
                     <span class="text-sm text-gray-700">Budget</span>
                   </div>
-                  <span class="font-semibold text-gray-800">${{ project.budget|default:"0" }}</span>
+                  <span class="font-semibold text-gray-800"
+                    >${{ project.budget|default:"0" }}</span
+                  >
                 </div>
-                
+
                 <!-- Client -->
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
-                    <div class="w-8 h-8 rounded-md bg-purple-50 text-purple-600 flex items-center justify-center mr-3">
+                    <div
+                      class="w-8 h-8 rounded-md bg-purple-50 text-purple-600 flex items-center justify-center mr-3"
+                    >
                       <i class="fas fa-user-tie"></i>
                     </div>
                     <span class="text-sm text-gray-700">Client</span>
                   </div>
-                  <span class="font-medium text-gray-800 truncate ml-2">{{ project.client.name|default:"No client" }}</span>
+                  <span class="font-medium text-gray-800 truncate ml-2"
+                    >{{ project.client.name|default:"No client" }}</span
+                  >
                 </div>
-                
+
                 <!-- Dates -->
                 <div class="grid grid-cols-2 gap-4">
                   <div>
                     <p class="text-xs text-gray-500 mb-1">Start Date</p>
                     <div class="flex items-center">
-                      <i class="fas fa-calendar-alt text-gray-400 mr-2 text-sm"></i>
-                      <span class="text-sm text-gray-700">{{ project.startDate|default:"Not set" }}</span>
+                      <i
+                        class="fas fa-calendar-alt text-gray-400 mr-2 text-sm"
+                      ></i>
+                      <span class="text-sm text-gray-700"
+                        >{{ project.startDate|default:"Not set" }}</span
+                      >
                     </div>
                   </div>
                   <div>
                     <p class="text-xs text-gray-500 mb-1">Deadline</p>
                     <div class="flex items-center">
-                      <i class="fas fa-flag-checkered text-gray-400 mr-2 text-sm"></i>
-                      <span class="text-sm text-gray-700">{{ project.deadline|default:"Not set" }}</span>
+                      <i
+                        class="fas fa-flag-checkered text-gray-400 mr-2 text-sm"
+                      ></i>
+                      <span class="text-sm text-gray-700"
+                        >{{ project.deadline|default:"Not set" }}</span
+                      >
                     </div>
                   </div>
                 </div>
               </div>
-              
+
               <!-- Progress Bar -->
               <!-- <div class="mb-6">
                 <div class="flex justify-between text-xs text-gray-600 mb-1">
@@ -211,21 +283,36 @@
                   <div class="bg-primary-600 h-2 rounded-full" style="width: 65%"></div>
                 </div>
               </div> -->
-              
+
               <!-- Action Buttons -->
               <div class="flex flex-wrap gap-2">
-                <a href="{% url 'projects:projectDetail' project.id %}" class="flex-1 min-w-[120px]">
-                  <button class="w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-medium py-2 px-4 rounded-lg transition-colors duration-300 border border-primary-200 hover:border-primary-300 flex items-center justify-center text-sm">
+                <a
+                  href="{% url 'projects:projectDetail' project.id %}"
+                  class="flex-1 min-w-[120px]"
+                >
+                  <button
+                    class="w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-medium py-2 px-4 rounded-lg transition-colors duration-300 border border-primary-200 hover:border-primary-300 flex items-center justify-center text-sm"
+                  >
                     <i class="fas fa-eye mr-2"></i> Details
                   </button>
                 </a>
-                <a href="{% url 'projects:editProject' project.id %}" class="flex-1 min-w-[120px]">
-                  <button class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center justify-center text-sm">
+                <a
+                  href="{% url 'projects:editProject' project.id %}"
+                  class="flex-1 min-w-[120px]"
+                >
+                  <button
+                    class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center justify-center text-sm"
+                  >
                     <i class="fas fa-edit mr-2"></i> Edit
                   </button>
                 </a>
-                <a href="{% url 'projects:deleteProject' project.id %}" class="flex-1 min-w-[120px]">
-                  <button class="w-full bg-red-50 hover:bg-red-100 text-red-700 font-medium py-2 px-4 rounded-lg transition-colors duration-300 border border-red-200 hover:border-red-300 flex items-center justify-center text-sm">
+                <a
+                  href="{% url 'projects:deleteProject' project.id %}"
+                  class="flex-1 min-w-[120px]"
+                >
+                  <button
+                    class="w-full bg-red-50 hover:bg-red-100 text-red-700 font-medium py-2 px-4 rounded-lg transition-colors duration-300 border border-red-200 hover:border-red-300 flex items-center justify-center text-sm"
+                  >
                     <i class="fas fa-trash-alt mr-2"></i> Delete
                   </button>
                 </a>
@@ -234,11 +321,23 @@
           </div>
           {% endfor %}
         </div>
-        
+
         <!-- Pagination/View Options -->
-        <div class="mt-8 flex flex-col sm:flex-row justify-between items-center">
+        <div
+          class="mt-8 flex flex-col sm:flex-row justify-between items-center"
+        >
           <div class="text-sm text-gray-500 mb-4 sm:mb-0">
-            Showing <span class="font-medium">{% if projects %}{{ projects|length }}{% else %}0{% endif %}</span> of <span class="font-medium">{% if projects %}{{ projects|length }}{% else %}0{% endif %}</span> projects
+            Showing
+            <span class="font-medium"
+              >{% if projects %}{{ projects|length }}{% else %}0{% endif
+              %}</span
+            >
+            of
+            <span class="font-medium"
+              >{% if projects %}{{ projects|length }}{% else %}0{% endif
+              %}</span
+            >
+            projects
           </div>
           <!-- <div class="flex items-center space-x-2">
             <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300 flex items-center">
@@ -249,48 +348,74 @@
             </button>
           </div> -->
         </div>
-        
+
         <!-- Quick Stats -->
         <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
-            <div class="text-2xl font-bold text-gray-800 mb-2">{% if projects %}{{ projects|length }}{% else %}0{% endif %}</div>
+          <div
+            class="bg-white rounded-lg border border-gray-200 p-6 text-center"
+          >
+            <div class="text-2xl font-bold text-gray-800 mb-2">
+              {% if projects %}{{ projects|length }}{% else %}0{% endif %}
+            </div>
             <p class="text-sm text-gray-600">Total Projects</p>
           </div>
-          <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
-            <div class="text-2xl font-bold text-gray-800 mb-2">${{ total_budget|default:"0" }}</div>
+          <div
+            class="bg-white rounded-lg border border-gray-200 p-6 text-center"
+          >
+            <div class="text-2xl font-bold text-gray-800 mb-2">
+              ${{ total_budget|default:"0" }}
+            </div>
             <p class="text-sm text-gray-600">Total Budget</p>
           </div>
-          <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
-            <div class="text-2xl font-bold text-gray-800 mb-2">{{ active_projects|default:"0" }}</div>
+          <div
+            class="bg-white rounded-lg border border-gray-200 p-6 text-center"
+          >
+            <div class="text-2xl font-bold text-gray-800 mb-2">
+              {{ active_projects|default:"0" }}
+            </div>
             <p class="text-sm text-gray-600">Active Projects</p>
           </div>
-
         </div>
-        
+
         {% else %}
         <!-- Empty State -->
-        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+        <div
+          class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden"
+        >
           <div class="text-center py-12 px-6">
-            <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-6">
+            <div
+              class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-6"
+            >
               <i class="fas fa-project-diagram text-gray-400 text-3xl"></i>
             </div>
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">No Projects Found</h2>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">
+              No Projects Found
+            </h2>
             <p class="text-gray-600 max-w-md mx-auto mb-8">
-              {% if q %}
-                No projects match your search "{{ q }}". Try different keywords or clear your search.
-              {% else %}
-                You haven't created any projects yet. Start by adding your first project to manage tasks, track progress, and collaborate with your team.
-              {% endif %}
+              {% if q %} No projects match your search "{{ q }}". Try different
+              keywords or clear your search. {% else %} You haven't created any
+              projects yet. Start by adding your first project to manage tasks,
+              track progress, and collaborate with your team. {% endif %}
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="{% url 'projects:addProject' %}" class="inline-flex justify-center">
-                <button class="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center">
+              <a
+                href="{% url 'projects:addProject' %}"
+                class="inline-flex justify-center"
+              >
+                <button
+                  class="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center"
+                >
                   <i class="fas fa-plus mr-2"></i> Create Your First Project
                 </button>
               </a>
               {% if q %}
-              <a href="{% url 'projects:showProjects' %}" class="inline-flex justify-center">
-                <button class="bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center">
+              <a
+                href="{% url 'projects:showProjects' %}"
+                class="inline-flex justify-center"
+              >
+                <button
+                  class="bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center"
+                >
                   <i class="fas fa-times mr-2"></i> Clear Search
                 </button>
               </a>
@@ -298,31 +423,47 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Getting Started -->
-        <div class="mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-8">
-          <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">Start Managing Projects</h3>
+        <div
+          class="mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-8"
+        >
+          <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">
+            Start Managing Projects
+          </h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="text-center">
-              <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mx-auto mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mx-auto mb-4"
+              >
                 <i class="fas fa-plus-circle"></i>
               </div>
               <h4 class="font-medium text-gray-800 mb-2">Create Projects</h4>
-              <p class="text-gray-600 text-sm">Add projects with details, budgets, and timelines</p>
+              <p class="text-gray-600 text-sm">
+                Add projects with details, budgets, and timelines
+              </p>
             </div>
             <div class="text-center">
-              <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4"
+              >
                 <i class="fas fa-users"></i>
               </div>
               <h4 class="font-medium text-gray-800 mb-2">Assign Teams</h4>
-              <p class="text-gray-600 text-sm">Assign team members and track their progress</p>
+              <p class="text-gray-600 text-sm">
+                Assign team members and track their progress
+              </p>
             </div>
             <div class="text-center">
-              <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4"
+              >
                 <i class="fas fa-chart-line"></i>
               </div>
               <h4 class="font-medium text-gray-800 mb-2">Track Progress</h4>
-              <p class="text-gray-600 text-sm">Monitor project milestones and deadlines</p>
+              <p class="text-gray-600 text-sm">
+                Monitor project milestones and deadlines
+              </p>
             </div>
           </div>
         </div>
@@ -334,19 +475,28 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="text-gray-500 text-sm mb-4 md:mb-0">
-              &copy; WorkFlow Project Management • 
-              {% if projects %}
-                {{ projects|length }} project{% if projects|length != 1 %}s{% endif %}
-              {% else %}
-                0 projects
-              {% endif %}
+              &copy; WorkFlow Project Management • {% if projects %} {{
+              projects|length }} project{% if projects|length != 1 %}s{% endif
+              %} {% else %} 0 projects {% endif %}
             </div>
             <div class="flex items-center space-x-6">
-              <a href="{% url 'dashboard:home' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Home</a>
+              <a
+                href="{% url 'dashboard:home' %}"
+                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                >Home</a
+              >
               <span class="text-gray-300">|</span>
-              <a href="{% url 'clients:clients' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Clients</a>
+              <a
+                href="{% url 'clients:clients' %}"
+                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                >Clients</a
+              >
               <span class="text-gray-300">|</span>
-              <a href="{% url 'dashboard:dashboard' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Dashboard</a>
+              <a
+                href="{% url 'dashboard:dashboard' %}"
+                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                >Dashboard</a
+              >
             </div>
           </div>
         </div>

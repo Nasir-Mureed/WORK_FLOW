@@ -6,65 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WorkFlow Signup</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               primary: {
-                50: '#eff6ff',
-                100: '#dbeafe',
-                500: '#3b82f6',
-                600: '#2563eb',
-                700: '#1d4ed8',
-              }
-            }
-          }
-        }
-      }
+                50: "#eff6ff",
+                100: "#dbeafe",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+              },
+            },
+          },
+        },
+      };
     </script>
   </head>
-  <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans">
+  <body
+    class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans"
+  >
     <div class="min-h-screen flex flex-col md:flex-row">
       <!-- Right side - Brand & Info -->
-      <div class="md:w-1/2 bg-gradient-to-br from-primary-600 to-primary-700 text-white p-8 md:p-12 lg:p-16 flex flex-col justify-between order-2 md:order-1">
+      <div
+        class="md:w-1/2 bg-gradient-to-br from-primary-600 to-primary-700 text-white p-8 md:p-12 lg:p-16 flex flex-col justify-between order-2 md:order-1"
+      >
         <div>
-          <a href="{% url 'dashboard:home' %}" class="inline-flex items-center text-white hover:text-gray-100 transition-colors duration-300 mb-12">
+          <a
+            href="{% url 'dashboard:home' %}"
+            class="inline-flex items-center text-white hover:text-gray-100 transition-colors duration-300 mb-12"
+          >
             <i class="fas fa-arrow-left mr-2"></i> Back to Home
           </a>
           <div class="max-w-md">
-            <div class="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-8">
+            <div
+              class="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-8"
+            >
               <i class="fas fa-user-plus text-2xl"></i>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold mb-6">Join <span class="text-primary-100">WorkFlow</span> Today</h1>
+            <h1 class="text-3xl md:text-4xl font-bold mb-6">
+              Join <span class="text-primary-100">WorkFlow</span> Today
+            </h1>
             <p class="text-primary-100 opacity-90 text-lg mb-8">
-              Start managing your projects efficiently with our comprehensive suite of tools designed for developers and freelancers.
+              Start managing your projects efficiently with our comprehensive
+              suite of tools designed for developers and freelancers.
             </p>
             <div class="space-y-4">
               <div class="flex items-center">
-                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                <div
+                  class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3"
+                >
                   <i class="fas fa-check text-sm"></i>
                 </div>
                 <span>Unlimited projects & clients</span>
               </div>
               <div class="flex items-center">
-                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                <div
+                  class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-check text-sm"></i>
+                </div>
+                <span>Track Your Finance</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-check text-sm"></i>
+                </div>
+                <span>Planning with Sprints and User Stories</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3"
+                >
                   <i class="fas fa-check text-sm"></i>
                 </div>
                 <span>Real-time analytics dashboard</span>
-              </div>
-              <div class="flex items-center">
-                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3">
-                  <i class="fas fa-check text-sm"></i>
-                </div>
-                <span>Collaborative team features</span>
-              </div>
-              <div class="flex items-center">
-                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3">
-                  <i class="fas fa-check text-sm"></i>
-                </div>
-                <span>Free 30-day trial</span>
               </div>
             </div>
           </div>
@@ -75,10 +98,14 @@
       </div>
 
       <!-- Left side - Signup Form -->
-      <div class="md:w-1/2 flex items-center justify-center p-8 order-1 md:order-2">
+      <div
+        class="md:w-1/2 flex items-center justify-center p-8 order-1 md:order-2"
+      >
         <div class="w-full max-w-md">
           <div class="text-center mb-8">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Create Account</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">
+              Create Account
+            </h2>
             <p class="text-gray-600">Start your journey with WorkFlow</p>
           </div>
 
@@ -86,7 +113,9 @@
           {% if messages %}
           <div class="mb-6 space-y-3">
             {% for message in messages %}
-            <div class="p-4 rounded-lg border {% if message.tags == 'error' %}bg-red-50 border-red-200 text-red-700{% else %}bg-blue-50 border-blue-200 text-blue-700{% endif %}">
+            <div
+              class="p-4 rounded-lg border {% if message.tags == 'error' %}bg-red-50 border-red-200 text-red-700{% else %}bg-blue-50 border-blue-200 text-blue-700{% endif %}"
+            >
               <div class="flex items-start">
                 <div class="flex-shrink-0">
                   {% if message.tags == 'error' %}
@@ -106,15 +135,22 @@
 
           <!-- Signup Form -->
           <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
-            <form action="{% url 'accounts:signup' %}" method="POST" class="space-y-5">
+            <form
+              action="{% url 'accounts:signup' %}"
+              method="POST"
+              class="space-y-5"
+            >
               {% csrf_token %}
-              
+
               <!-- Name Fields Row -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <!-- First Name -->
                 <div>
-                  <label for="first-name" class="block text-sm font-medium text-gray-700 mb-2">
-                    <i class="fas fa-user mr-2 text-primary-600"></i>First Name
+                  <label
+                    for="first-name"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                  </i>First Name
                   </label>
                   <div class="relative">
                     <input
@@ -123,19 +159,19 @@
                       name="first-name"
                       placeholder="John"
                       required
-                      class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                      class="w-full px-2 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
                     />
-                    <div class="absolute left-3 top-3.5 text-gray-400">
-                      <i class="fas fa-user"></i>
-                    </div>
                   </div>
                   <p class="mt-1 text-xs text-gray-500">Your first name</p>
                 </div>
 
                 <!-- Last Name -->
                 <div>
-                  <label for="last-name" class="block text-sm font-medium text-gray-700 mb-2">
-                    <i class="fas fa-user mr-2 text-primary-600"></i>Last Name
+                  <label
+                    for="last-name"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Last Name
                   </label>
                   <div class="relative">
                     <input
@@ -144,11 +180,9 @@
                       name="last-name"
                       placeholder="Doe"
                       required
-                      class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                      class="w-full px-2 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
                     />
-                    <div class="absolute left-3 top-3.5 text-gray-400">
-                      <i class="fas fa-user"></i>
-                    </div>
+
                   </div>
                   <p class="mt-1 text-xs text-gray-500">Your last name</p>
                 </div>
@@ -156,8 +190,11 @@
 
               <!-- Username Field -->
               <div>
-                <label for="username" class="block text-sm font-medium text-gray-700 mb-2">
-                  <i class="fas fa-at mr-2 text-primary-600"></i>Username
+                <label
+                  for="username"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                Username
                 </label>
                 <div class="relative">
                   <input
@@ -166,19 +203,22 @@
                     name="username"
                     placeholder="johndoe"
                     required
-                    class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                    class="w-full px-2 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
                   />
-                  <div class="absolute left-3 top-3.5 text-gray-400">
-                    <i class="fas fa-at"></i>
-                  </div>
+                 
                 </div>
-                <p class="mt-1 text-xs text-gray-500">Choose a unique username</p>
+                <p class="mt-1 text-xs text-gray-500">
+                  Choose a unique username
+                </p>
               </div>
 
               <!-- Password Field -->
               <div>
-                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
-                  <i class="fas fa-lock mr-2 text-primary-600"></i>Password
+                <label
+                  for="password"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Password
                 </label>
                 <div class="relative">
                   <input
@@ -187,11 +227,9 @@
                     name="password"
                     placeholder="••••••••"
                     required
-                    class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                    class="w-full px-2 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
                   />
-                  <div class="absolute left-3 top-3.5 text-gray-400">
-                    <i class="fas fa-lock"></i>
-                  </div>
+                
                 </div>
                 <div class="mt-2">
                   <p class="text-xs text-gray-500">Choose a strong password</p>
@@ -239,7 +277,9 @@
                   <div class="w-full border-t border-gray-300"></div>
                 </div>
                 <div class="relative flex justify-center text-sm">
-                  <span class="px-2 bg-white text-gray-500">Or sign up with</span>
+                  <span class="px-2 bg-white text-gray-500"
+                    >Or sign up with</span
+                  >
                 </div>
               </div>
 
@@ -264,7 +304,10 @@
             <div class="mt-8 text-center">
               <p class="text-gray-600">
                 Already have an account?
-                <a href="{% url 'accounts:login' %}" class="font-semibold text-primary-600 hover:text-primary-500 transition-colors duration-300 ml-1">
+                <a
+                  href="{% url 'accounts:login' %}"
+                  class="font-semibold text-primary-600 hover:text-primary-500 transition-colors duration-300 ml-1"
+                >
                   Sign in here
                 </a>
               </p>
@@ -272,19 +315,7 @@
           </div>
 
           <!-- Security Notice -->
-          <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <div class="flex">
-              <div class="flex-shrink-0">
-                <i class="fas fa-shield-alt text-blue-600"></i>
-              </div>
-              <div class="ml-3">
-                <h3 class="text-sm font-medium text-blue-800">Secure Registration</h3>
-                <div class="mt-2 text-sm text-blue-700">
-                  <p>Your information is protected with 256-bit SSL encryption.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

@@ -5,88 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WorkFlow Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               primary: {
-                50: '#eff6ff',
-                100: '#dbeafe',
-                500: '#3b82f6',
-                600: '#2563eb',
-                700: '#1d4ed8',
-              }
-            }
-          }
-        }
-      }
+                50: "#eff6ff",
+                100: "#dbeafe",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+              },
+            },
+          },
+        },
+      };
     </script>
   </head>
-  <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans">
+  <body
+    class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans"
+  >
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <!-- Header Section -->
       <header class="text-center mb-12 sm:mb-16">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white mb-6 shadow-lg">
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white mb-6 shadow-lg"
+        >
           <i class="fas fa-project-diagram text-2xl"></i>
         </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Welcome to <span class="text-primary-600">WorkFlow</span></h1>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">Streamline your projects, collaborate with teams, and manage clients efficiently.</p>
+        <h1
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4"
+        >
+          Welcome to <span class="text-primary-600">WorkFlow</span>
+        </h1>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Streamline your projects, track your finanace , and manage clients
+          efficiently.
+        </p>
       </header>
 
       <!-- Main Action Cards -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         <!-- Profile Card -->
-        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+        <div
+          class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300"
+        >
           <div class="flex items-center mb-4">
-            <div class="w-10 h-10 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center mr-3">
+            <div
+              class="w-10 h-10 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center mr-3"
+            >
               <i class="fas fa-user"></i>
             </div>
             <h2 class="text-xl font-semibold text-gray-800">My Profile</h2>
           </div>
-          <p class="text-gray-600 mb-6">View and manage your account details, preferences, and settings.</p>
+          <p class="text-gray-600 mb-6">
+            View and manage your account details, preferences, and settings.
+          </p>
           <a href="{% url 'dashboard:profile' %}" class="block">
-            <button class="w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-primary-200 hover:border-primary-300 flex items-center justify-center">
+            <button
+              class="w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-primary-200 hover:border-primary-300 flex items-center justify-center"
+            >
               <i class="fas fa-id-card mr-2"></i> View Profile
             </button>
           </a>
         </div>
 
         <!-- Authentication Card -->
-        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+        <div
+          class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300"
+        >
           <div class="flex items-center mb-4">
-            <div class="w-10 h-10 rounded-lg bg-green-50 text-green-600 flex items-center justify-center mr-3">
+            <div
+              class="w-10 h-10 rounded-lg bg-green-50 text-green-600 flex items-center justify-center mr-3"
+            >
               <i class="fas fa-key"></i>
             </div>
             <h2 class="text-xl font-semibold text-gray-800">Authentication</h2>
           </div>
-          <p class="text-gray-600 mb-4">Access your account or join WorkFlow to get started.</p>
+          <p class="text-gray-600 mb-4">
+            Access your account or join WorkFlow to get started.
+          </p>
           <div class="space-y-3">
             <a href="{% url 'accounts:login' %}" class="block">
-              <button class="w-full bg-white hover:bg-gray-50 text-gray-700 font-medium py-2.5 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center justify-center">
+              <button
+                class="w-full bg-white hover:bg-gray-50 text-gray-700 font-medium py-2.5 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center justify-center"
+              >
                 <i class="fas fa-sign-in-alt mr-2"></i> Login
               </button>
             </a>
             <a href="{% url 'accounts:signup' %}" class="block">
-              <button class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-300 shadow-sm hover:shadow flex items-center justify-center">
-                <i class="fas fa-rocket mr-2"></i> Register
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-300 shadow-sm hover:shadow flex items-center justify-center"
+              >
+                Register
               </button>
             </a>
           </div>
         </div>
 
         <!-- Dashboard Card -->
-        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
+        <div
+          class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300"
+        >
           <div class="flex items-center mb-4">
-            <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mr-3">
+            <div
+              class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mr-3"
+            >
               <i class="fas fa-tachometer-alt"></i>
             </div>
             <h2 class="text-xl font-semibold text-gray-800">Dashboard</h2>
           </div>
-          <p class="text-gray-600 mb-6">Access your personalized dashboard with project insights and analytics.</p>
+          <p class="text-gray-600 mb-6">
+            Access your personalized dashboard with project insights and
+            analytics.
+          </p>
           <a href="{% url 'dashboard:dashboard' %}" class="block">
-            <button class="w-full bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-purple-200 hover:border-purple-300 flex items-center justify-center">
+            <button
+              class="w-full bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-purple-200 hover:border-purple-300 flex items-center justify-center"
+            >
               <i class="fas fa-chart-line mr-2"></i> Go to Dashboard
             </button>
           </a>
@@ -94,39 +135,62 @@
       </div>
 
       <!-- Quick Links Section -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-12">
+      <div
+        class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-12"
+      >
         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
           <i class="fas fa-compass mr-2 text-primary-600"></i> Quick Navigation
         </h3>
-        <div class="  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <a href="{% url 'dashboard:about' %}" class="block">
-            <div class=" flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group">
-              <div class="flex items-center ">
-                <div class="w-8 h-8 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center mr-3 group-hover:bg-blue-100">
+            <div
+              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group"
+            >
+              <div class="flex items-center">
+                <div
+                  class="w-8 h-8 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center mr-3 group-hover:bg-blue-100"
+                >
                   <i class="fas fa-info-circle"></i>
                 </div>
-                <span class="text-gray-700 font-medium group-hover:text-gray-900">About</span>
+                <span
+                  class="text-gray-700 font-medium group-hover:text-gray-900"
+                  >About</span
+                >
               </div>
             </div>
           </a>
           <a href="{% url 'dashboard:contact' %}" class="block">
-            <div class="flex justify-center  bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group">
+            <div
+              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group"
+            >
               <div class="flex items-center">
-                <div class="w-8 h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-3 group-hover:bg-green-100">
+                <div
+                  class="w-8 h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-3 group-hover:bg-green-100"
+                >
                   <i class="fas fa-envelope"></i>
                 </div>
-                <span class="text-gray-700 font-medium group-hover:text-gray-900">Contact</span>
+                <span
+                  class="text-gray-700 font-medium group-hover:text-gray-900"
+                  >Contact</span
+                >
               </div>
             </div>
           </a>
 
           <a href="{% url 'dashboard:help' %}" class="block">
-            <div class="flex justify-center  bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group">
+            <div
+              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group"
+            >
               <div class="flex items-center">
-                <div class="w-8 h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-3 group-hover:bg-green-100">
+                <div
+                  class="w-8 h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-3 group-hover:bg-green-100"
+                >
                   <i class="fas fa-question-circle"></i>
                 </div>
-                <span class="text-gray-700 font-medium group-hover:text-gray-900">Help</span>
+                <span
+                  class="text-gray-700 font-medium group-hover:text-gray-900"
+                  >Help</span
+                >
               </div>
             </div>
           </a>
@@ -156,17 +220,28 @@
       </div>
 
       <!-- Explore Section -->
-      <div class="bg-gradient-to-r from-primary-50 to-blue-50 border border-primary-100 rounded-xl p-8 text-center">
-        <h3 class="text-2xl font-bold text-gray-800 mb-3">Want to Explore Projects & Clients?</h3>
-        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Browse through all projects or manage your client relationships efficiently.</p>
+      <div
+        class="bg-gradient-to-r from-primary-50 to-blue-50 border border-primary-100 rounded-xl p-8 text-center"
+      >
+        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+          Want to Explore Projects & Clients?
+        </h3>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+          Browse through all projects or manage your client relationships
+          efficiently.
+        </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a href="{% url 'projects:showProjects' %}" class="block">
-            <button class="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-lg border border-gray-300 hover:border-gray-400 shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center w-full sm:w-auto">
+            <button
+              class="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-lg border border-gray-300 hover:border-gray-400 shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center w-full sm:w-auto"
+            >
               <i class="fas fa-folder-open mr-2"></i> Show Projects
             </button>
           </a>
           <a href="{% url 'clients:clients' %}" class="block">
-            <button class="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center w-full sm:w-auto">
+            <button
+              class="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center w-full sm:w-auto"
+            >
               <i class="fas fa-address-book mr-2"></i> Show Clients
             </button>
           </a>
@@ -176,7 +251,7 @@
       <!-- Footer Note -->
       <footer class="mt-12 pt-8 border-t border-gray-200 text-center">
         <p class="text-gray-500 text-sm">
-          &copy; WorkFlow Project Management System. Streamlining your workflow since day one.
+          &copy; WorkFlow Project Management System.
         </p>
       </footer>
     </div>
