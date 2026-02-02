@@ -32,35 +32,34 @@
     <div class="min-h-screen">
       <!-- Header -->
       <header class="bg-white border-b border-gray-200 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center py-4">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+          <div class="flex justify-between items-center py-3 sm:py-4">
             <div class="flex items-center">
               <a
                 href="{% url 'projects:projectDetail' id %}"
                 class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300"
               >
-                <i class="fas fa-arrow-left mr-2"></i>
-                <span class="font-medium">Back to Project</span>
+                <i class="fas fa-arrow-left mr-1 sm:mr-2 text-sm"></i>
+                <span class="font-medium text-xs sm:text-sm md:text-base">Back to Project</span>
               </a>
             </div>
-            <div class="text-lg font-semibold text-gray-800">
-              <i class="fas fa-plus-circle mr-2 text-primary-600"></i> Edit
-              Sprint
+            <div class="text-base sm:text-lg font-semibold text-gray-800">
+               Edit Sprint
             </div>
           </div>
         </div>
       </header>
 
       <!-- Main Content -->
-      <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 md:py-8">
         <!-- Page Header -->
-        <div class="mb-8">
+        <div class="mb-6 sm:mb-8">
           <div
             class="flex flex-col md:flex-row md:items-center justify-between"
           >
             <div>
-              <h1 class="text-3xl font-bold text-gray-800">Edit Sprint</h1>
-              <p class="text-gray-600 mt-2">
+              <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">Edit Sprint</h1>
+              <p class="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">
                 Set up a new development sprint for your project
               </p>
             </div>
@@ -75,23 +74,23 @@
           >
             <!-- Form Header -->
             <div
-              class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200"
+              class="bg-gradient-to-r from-primary-50 to-blue-50 px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-b border-gray-200"
             >
-              <h2 class="text-xl font-semibold text-gray-800 flex items-center">
-                <i class="fas fa-sprint mr-2 text-primary-600"></i> Sprint
+              <h2 class="text-lg sm:text-xl font-semibold text-gray-800 flex items-center">
+                <i class="fas fa-sprint mr-2 text-primary-600 text-sm sm:text-base"></i> Sprint
                 Details
               </h2>
-              <p class="text-sm text-gray-600 mt-1">
+              <p class="text-sm text-gray-600 mt-1 text-xs sm:text-sm">
                 Define the sprint timeline and objectives
               </p>
             </div>
 
             <!-- Form Content -->
-            <div class="p-6 md:p-8">
+            <div class="p-4 sm:p-5 md:p-6 lg:p-8">
               <form
                 action="{% url 'sprints:editSprint' id sprint.id %}"
                 method="POST"
-                class="space-y-6"
+                class="space-y-4 sm:space-y-5 md:space-y-6"
               >
                 {% csrf_token %}
 
@@ -99,10 +98,10 @@
                 <div>
                   <label
                     for="name"
-                    class="block text-sm font-medium text-gray-700 mb-2"
+                    class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
                   >
                     <span class="flex items-center">
-                      <i class="fas fa-tag mr-2 text-primary-600"></i> New
+                      <i class="fas fa-tag mr-2 text-primary-600 text-sm"></i> New
                       Sprint Name
                       <span class="ml-1 text-red-500">*</span>
                     </span>
@@ -115,11 +114,8 @@
                       value="{{sprint.name}}"
                       placeholder="e.g., Sprint 1: Authentication Implementation"
                       required
-                      class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                      class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                     />
-                    <div class="absolute left-3 top-3.5 text-gray-400">
-                      <i class="fas fa-heading"></i>
-                    </div>
                   </div>
                   <p class="mt-1 text-xs text-gray-500">
                     Choose a descriptive name for the sprint
@@ -127,17 +123,14 @@
                 </div>
 
                 <!-- Dates Section -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                   <!-- Start Date -->
                   <div>
                     <label
                       for="startDate"
-                      class="block text-sm font-medium text-gray-700 mb-2"
+                      class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
                     >
                       <span class="flex items-center">
-                        <i
-                          class="fas fa-calendar-plus mr-2 text-primary-600"
-                        ></i>
                         Start Date
                       </span>
                     </label>
@@ -146,31 +139,22 @@
                         type="date"
                         id="startDate"
                         name="startDate"
-                        value="{{ today }}"
-                        class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        value="{{ sprint.startDate|date:'Y-m-d' }}"
+                        class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
-                      <div class="absolute left-3 top-3.5 text-gray-400">
+                      <div class="absolute left-3 top-2.5 sm:top-3.5 text-gray-400 text-sm sm:text-base">
                         <i class="fas fa-calendar-alt"></i>
                       </div>
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">
-                      Default:
-                      <span class="font-medium"
-                        >{{ today|default:"Today" }}</span
-                      >
-                    </p>
                   </div>
 
                   <!-- End Date -->
                   <div>
                     <label
                       for="endDate"
-                      class="block text-sm font-medium text-gray-700 mb-2"
+                      class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
                     >
                       <span class="flex items-center">
-                        <i
-                          class="fas fa-flag-checkered mr-2 text-primary-600"
-                        ></i>
                         End Date
                         <span class="ml-1 text-red-500">*</span>
                       </span>
@@ -180,52 +164,57 @@
                         type="date"
                         id="endDate"
                         name="endDate"
-                        required
-                        class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        value="{{ sprint.endDate|date:'Y-m-d' }}"
+                        class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
-                      <div class="absolute left-3 top-3.5 text-gray-400">
+                      <div class="absolute left-3 top-2.5 sm:top-3.5 text-gray-400 text-sm sm:text-base">
                         <i class="fas fa-calendar-times"></i>
                       </div>
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">
-                      Sprint completion deadline
-                    </p>
                   </div>
                 </div>
 
                 <!-- Active Status -->
                 <div class="flex items-center">
+                  {% if sprint.status %}
                   <input
                     id="status"
                     name="status"
                     type="checkbox"
-                    class="h-6 w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                    checked
+                    class="h-5 w-5 sm:h-6 sm:w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                    checked  
                   />
-                  <label for="status" class="ml-2 block text-sm text-gray-700">
+                  {% else %}
+                  <input
+                    id="status"
+                    name="status"
+                    type="checkbox"
+                    class="h-5 w-5 sm:h-6 sm:w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                     
+                  />
+                  {% endif %}
+                  <label for="status" class="ml-2 block text-xs sm:text-sm text-gray-700">
                     Marked : Active -- UnMarked : Inactive
                   </label>
                 </div>
 
                 <!-- Sprint Duration Calculator -->
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <div class="flex items-center mb-2">
-                    <i class="fas fa-calculator text-blue-600 mr-2"></i>
-                    <span class="text-sm font-medium text-blue-800"
-                      >Sprint Duration</span
-                    >
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
+                  <div class="flex items-center mb-1.5 sm:mb-2">
+                    <i class="fas fa-calculator text-blue-600 mr-1.5 sm:mr-2 text-sm sm:text-base"></i>
+                    <span class="text-xs sm:text-sm font-medium text-blue-800">Sprint Duration</span>
                   </div>
                 </div>
 
                 <!-- Form Actions -->
                 <div
-                  class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200"
+                  class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-5 md:pt-6 border-t border-gray-200"
                 >
                   <button
                     type="submit"
-                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center"
+                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center text-sm sm:text-base"
                   >
-                    <i class="fas fa-plus-circle mr-2"></i> Save Changes
+                     Save Changes
                   </button>
 
                   <a
@@ -234,9 +223,9 @@
                   >
                     <button
                       type="button"
-                      class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center"
+                      class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center text-sm sm:text-base"
                     >
-                      <i class="fas fa-times mr-2"></i> Cancel
+                      <i class="fas fa-times mr-1 sm:mr-2 text-sm"></i> Cancel
                     </button>
                   </a>
                 </div>
@@ -246,38 +235,38 @@
 
           <!-- Sprint Guidelines -->
           <div
-            class="mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-6"
+            class="mt-6 sm:mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-4 sm:p-5 md:p-6"
           >
             <div class="flex">
               <div class="flex-shrink-0">
                 <div
-                  class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center"
+                  class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center text-sm sm:text-base"
                 >
                   <i class="fas fa-lightbulb"></i>
                 </div>
               </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">
+              <div class="ml-3 sm:ml-4">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">
                   Sprint Best Practices
                 </h3>
-                <ul class="text-gray-600 space-y-2">
+                <ul class="text-gray-600 space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                   <li class="flex items-start">
-                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                     <span
                       >Keep sprints short (1-4 weeks) for better focus and
                       adaptability</span
                     >
                   </li>
                   <li class="flex items-start">
-                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                     <span>Define clear, measurable goals for each sprint</span>
                   </li>
                   <li class="flex items-start">
-                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                     <span>Include buffer time for unexpected challenges</span>
                   </li>
                   <li class="flex items-start">
-                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                     <span>Schedule sprint reviews and retrospectives</span>
                   </li>
                 </ul>
@@ -288,28 +277,28 @@
       </main>
 
       <!-- Footer -->
-      <footer class="mt-12 border-t border-gray-200 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <footer class="mt-8 sm:mt-10 md:mt-12 border-t border-gray-200 bg-white">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-5 md:py-6">
           <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="text-gray-500 text-sm mb-4 md:mb-0">
+            <div class="text-gray-500 text-xs sm:text-sm mb-3 md:mb-0 text-center md:text-left">
               &copy; WorkFlow Sprint Management
             </div>
-            <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-wrap justify-center">
               <a
                 href="{% url 'projects:projectDetail' id %}"
-                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1"
                 >Project Details</a
               >
-              <span class="text-gray-300">|</span>
+              <span class="text-gray-300 hidden sm:inline">|</span>
               <a
                 href="{% url 'projects:showProjects' %}"
-                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1"
                 >All Projects</a
               >
-              <span class="text-gray-300">|</span>
+              <span class="text-gray-300 hidden sm:inline">|</span>
               <a
                 href="{% url 'dashboard:dashboard' %}"
-                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1"
                 >Dashboard</a
               >
             </div>

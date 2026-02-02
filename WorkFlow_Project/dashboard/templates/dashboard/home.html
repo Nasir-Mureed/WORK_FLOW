@@ -30,77 +30,77 @@
   <body
     class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans"
   >
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-12">
       <!-- Header Section -->
-      <header class="text-center mb-12 sm:mb-16">
+      <header class="text-center mb-8 sm:mb-12 md:mb-16">
         <div
-          class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white mb-6 shadow-lg"
+          class="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white mb-4 sm:mb-6 shadow-lg"
         >
-          <i class="fas fa-project-diagram text-2xl"></i>
+          <i class="fas fa-project-diagram text-xl sm:text-2xl"></i>
         </div>
         <h1
-          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4"
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4"
         >
           Welcome to <span class="text-primary-600">WorkFlow</span>
         </h1>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-          Streamline your projects, track your finanace , and manage clients
+        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-2">
+          Streamline your projects, track your finance, and manage clients
           efficiently.
         </p>
       </header>
 
       <!-- Main Action Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
         <!-- Profile Card -->
         <div
-          class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300"
+          class="bg-white rounded-xl shadow-md border border-gray-200 p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300"
         >
-          <div class="flex items-center mb-4">
+          <div class="flex items-center mb-3 sm:mb-4">
             <div
-              class="w-10 h-10 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center mr-3"
+              class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center mr-2 sm:mr-3"
             >
-              <i class="fas fa-user"></i>
+              <i class="fas fa-user text-sm sm:text-base"></i>
             </div>
-            <h2 class="text-xl font-semibold text-gray-800">My Profile</h2>
+            <h2 class="text-lg sm:text-xl font-semibold text-gray-800">My Profile</h2>
           </div>
-          <p class="text-gray-600 mb-6">
+          <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
             View and manage your account details, preferences, and settings.
           </p>
           <a href="{% url 'dashboard:profile' %}" class="block">
             <button
-              class="w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-primary-200 hover:border-primary-300 flex items-center justify-center"
+              class="w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-colors duration-300 border border-primary-200 hover:border-primary-300 flex items-center justify-center text-sm sm:text-base"
             >
-              <i class="fas fa-id-card mr-2"></i> View Profile
+              <i class="fas fa-id-card mr-2 text-sm sm:text-base"></i> View Profile
             </button>
           </a>
         </div>
 
         <!-- Authentication Card -->
         <div
-          class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300"
+          class="bg-white rounded-xl shadow-md border border-gray-200 p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300"
         >
-          <div class="flex items-center mb-4">
+          <div class="flex items-center mb-3 sm:mb-4">
             <div
-              class="w-10 h-10 rounded-lg bg-green-50 text-green-600 flex items-center justify-center mr-3"
+              class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-green-50 text-green-600 flex items-center justify-center mr-2 sm:mr-3"
             >
-              <i class="fas fa-key"></i>
+              <i class="fas fa-key text-sm sm:text-base"></i>
             </div>
-            <h2 class="text-xl font-semibold text-gray-800">Authentication</h2>
+            <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Authentication</h2>
           </div>
-          <p class="text-gray-600 mb-4">
+          <p class="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">
             Access your account or join WorkFlow to get started.
           </p>
-          <div class="space-y-3">
+          <div class="space-y-2 sm:space-y-3">
             <a href="{% url 'accounts:login' %}" class="block">
               <button
-                class="w-full bg-white hover:bg-gray-50 text-gray-700 font-medium py-2.5 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center justify-center"
+                class="w-full bg-white hover:bg-gray-50 text-gray-700 font-medium py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center justify-center text-sm sm:text-base"
               >
-                <i class="fas fa-sign-in-alt mr-2"></i> Login
+                <i class="fas fa-sign-in-alt mr-2 text-sm sm:text-base"></i> Login
               </button>
             </a>
             <a href="{% url 'accounts:signup' %}" class="block">
               <button
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-300 shadow-sm hover:shadow flex items-center justify-center"
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg transition-colors duration-300 shadow-sm hover:shadow flex items-center justify-center text-sm sm:text-base"
               >
                 Register
               </button>
@@ -110,25 +110,25 @@
 
         <!-- Dashboard Card -->
         <div
-          class="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300"
+          class="bg-white rounded-xl shadow-md border border-gray-200 p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300"
         >
-          <div class="flex items-center mb-4">
+          <div class="flex items-center mb-3 sm:mb-4">
             <div
-              class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mr-3"
+              class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mr-2 sm:mr-3"
             >
-              <i class="fas fa-tachometer-alt"></i>
+              <i class="fas fa-tachometer-alt text-sm sm:text-base"></i>
             </div>
-            <h2 class="text-xl font-semibold text-gray-800">Dashboard</h2>
+            <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Dashboard</h2>
           </div>
-          <p class="text-gray-600 mb-6">
+          <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
             Access your personalized dashboard with project insights and
             analytics.
           </p>
           <a href="{% url 'dashboard:dashboard' %}" class="block">
             <button
-              class="w-full bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-purple-200 hover:border-purple-300 flex items-center justify-center"
+              class="w-full bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg transition-colors duration-300 border border-purple-200 hover:border-purple-300 flex items-center justify-center text-sm sm:text-base"
             >
-              <i class="fas fa-chart-line mr-2"></i> Go to Dashboard
+              <i class="fas fa-chart-line mr-2 text-sm sm:text-base"></i> Go to Dashboard
             </button>
           </a>
         </div>
@@ -136,24 +136,24 @@
 
       <!-- Quick Links Section -->
       <div
-        class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-12"
+        class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 mb-8 sm:mb-12"
       >
-        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-          <i class="fas fa-compass mr-2 text-primary-600"></i> Quick Navigation
+        <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center">
+          <i class="fas fa-compass mr-2 text-primary-600 text-sm sm:text-base"></i> Quick Navigation
         </h3>
-        <div class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <a href="{% url 'dashboard:about' %}" class="block">
             <div
-              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group"
+              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors duration-300 group"
             >
               <div class="flex items-center">
                 <div
-                  class="w-8 h-8 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center mr-3 group-hover:bg-blue-100"
+                  class="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center mr-2 sm:mr-3 group-hover:bg-blue-100"
                 >
-                  <i class="fas fa-info-circle"></i>
+                  <i class="fas fa-info-circle text-sm sm:text-base"></i>
                 </div>
                 <span
-                  class="text-gray-700 font-medium group-hover:text-gray-900"
+                  class="text-gray-700 font-medium group-hover:text-gray-900 text-sm sm:text-base"
                   >About</span
                 >
               </div>
@@ -161,16 +161,16 @@
           </a>
           <a href="{% url 'dashboard:contact' %}" class="block">
             <div
-              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group"
+              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors duration-300 group"
             >
               <div class="flex items-center">
                 <div
-                  class="w-8 h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-3 group-hover:bg-green-100"
+                  class="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-2 sm:mr-3 group-hover:bg-green-100"
                 >
-                  <i class="fas fa-envelope"></i>
+                  <i class="fas fa-envelope text-sm sm:text-base"></i>
                 </div>
                 <span
-                  class="text-gray-700 font-medium group-hover:text-gray-900"
+                  class="text-gray-700 font-medium group-hover:text-gray-900 text-sm sm:text-base"
                   >Contact</span
                 >
               </div>
@@ -179,40 +179,58 @@
 
           <a href="{% url 'dashboard:help' %}" class="block">
             <div
-              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group"
+              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors duration-300 group"
             >
               <div class="flex items-center">
                 <div
-                  class="w-8 h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-3 group-hover:bg-green-100"
+                  class="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-green-50 text-green-600 flex items-center justify-center mr-2 sm:mr-3 group-hover:bg-green-100"
                 >
-                  <i class="fas fa-question-circle"></i>
+                  <i class="fas fa-question-circle text-sm sm:text-base"></i>
                 </div>
                 <span
-                  class="text-gray-700 font-medium group-hover:text-gray-900"
+                  class="text-gray-700 font-medium group-hover:text-gray-900 text-sm sm:text-base"
                   >Help</span
                 >
               </div>
             </div>
           </a>
 
-          <!-- <a href="{% url 'projects:showProjects' %}" class="block">
-            <div class="bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group">
+          <div class="block">
+            <div
+              class="flex justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors duration-300 group"
+            >
               <div class="flex items-center">
-                <div class="w-8 h-8 rounded-md bg-orange-50 text-orange-600 flex items-center justify-center mr-3 group-hover:bg-orange-100">
-                  <i class="fas fa-briefcase"></i>
+                <div
+                  class="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center mr-2 sm:mr-3 group-hover:bg-blue-100"
+                >
+                  <i class="fas fa-home text-sm sm:text-base"></i>
                 </div>
-                <span class="text-gray-700 font-medium group-hover:text-gray-900">Projects</span>
+                <span
+                  class="text-gray-700 font-medium group-hover:text-gray-900 text-sm sm:text-base"
+                  >Home</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- <a href="{% url 'projects:showProjects' %}" class="block">
+            <div class="bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors duration-300 group">
+              <div class="flex items-center">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-orange-50 text-orange-600 flex items-center justify-center mr-2 sm:mr-3 group-hover:bg-orange-100">
+                  <i class="fas fa-briefcase text-sm sm:text-base"></i>
+                </div>
+                <span class="text-gray-700 font-medium group-hover:text-gray-900 text-sm sm:text-base">Projects</span>
               </div>
             </div>
           </a>
 
           <a href="{% url 'clients:clients' %}" class="block">
-            <div class="bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-4 transition-colors duration-300 group">
+            <div class="bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors duration-300 group">
               <div class="flex items-center">
-                <div class="w-8 h-8 rounded-md bg-indigo-50 text-indigo-600 flex items-center justify-center mr-3 group-hover:bg-indigo-100">
-                  <i class="fas fa-users"></i>
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-indigo-50 text-indigo-600 flex items-center justify-center mr-2 sm:mr-3 group-hover:bg-indigo-100">
+                  <i class="fas fa-users text-sm sm:text-base"></i>
                 </div>
-                <span class="text-gray-700 font-medium group-hover:text-gray-900">Clients</span>
+                <span class="text-gray-700 font-medium group-hover:text-gray-900 text-sm sm:text-base">Clients</span>
               </div>
             </div>
           </a> -->
@@ -221,36 +239,36 @@
 
       <!-- Explore Section -->
       <div
-        class="bg-gradient-to-r from-primary-50 to-blue-50 border border-primary-100 rounded-xl p-8 text-center"
+        class="bg-gradient-to-r from-primary-50 to-blue-50 border border-primary-100 rounded-xl p-6 sm:p-8 text-center"
       >
-        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+        <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">
           Want to Explore Projects & Clients?
         </h3>
-        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6 max-w-2xl mx-auto px-2">
           Browse through all projects or manage your client relationships
           efficiently.
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="{% url 'projects:showProjects' %}" class="block">
+        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+          <a href="{% url 'projects:showProjects' %}" class="block w-full sm:w-auto">
             <button
-              class="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-lg border border-gray-300 hover:border-gray-400 shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center w-full sm:w-auto"
+              class="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg border border-gray-300 hover:border-gray-400 shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center w-full"
             >
-              <i class="fas fa-folder-open mr-2"></i> Show Projects
+              <i class="fas fa-folder-open mr-2 text-sm sm:text-base"></i> Show Projects
             </button>
           </a>
-          <a href="{% url 'clients:clients' %}" class="block">
+          <a href="{% url 'clients:clients' %}" class="block w-full sm:w-auto">
             <button
-              class="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center w-full sm:w-auto"
+              class="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center w-full"
             >
-              <i class="fas fa-address-book mr-2"></i> Show Clients
+              <i class="fas fa-address-book mr-2 text-sm sm:text-base"></i> Show Clients
             </button>
           </a>
         </div>
       </div>
 
       <!-- Footer Note -->
-      <footer class="mt-12 pt-8 border-t border-gray-200 text-center">
-        <p class="text-gray-500 text-sm">
+      <footer class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200 text-center">
+        <p class="text-gray-500 text-xs sm:text-sm">
           &copy; WorkFlow Project Management System.
         </p>
       </footer>

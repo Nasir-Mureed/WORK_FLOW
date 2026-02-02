@@ -32,30 +32,31 @@
     <div class="min-h-screen">
       <!-- Header -->
       <header class="bg-white border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center py-4">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+          <div class="flex justify-between items-center py-3 sm:py-4">
             <div class="flex items-center">
               <a
                 href="{% url 'projects:showProjects' %}"
-                class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300 mr-6"
+                class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300 mr-3 sm:mr-4 md:mr-6"
               >
-                <i class="fas fa-arrow-left mr-2"></i>
-                <span class="font-medium">All Projects</span>
+                <i class="fas fa-arrow-left mr-1 sm:mr-2 text-sm"></i>
+                <span class="font-medium text-xs sm:text-sm md:text-base">All Projects</span>
               </a>
-              <div class="w-2 h-2 rounded-full bg-gray-300 mx-3"></div>
-              <div class="text-gray-800 font-medium truncate max-w-xs">
+              <div class="hidden sm:block w-2 h-2 rounded-full bg-gray-300 mx-2 sm:mx-3"></div>
+              <div class="text-gray-800 font-medium truncate max-w-xs text-sm sm:text-base">
                 {{ project.title }}
               </div>
             </div>
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
               <a
                 href="{% url 'projects:editProject' project.id %}"
                 class="text-gray-600 hover:text-primary-600 transition-colors duration-300"
               >
                 <button
-                  class="flex items-center text-sm bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-lg transition-colors duration-300"
+                  class="flex items-center text-xs sm:text-sm bg-gray-100 hover:bg-gray-200 py-1.5 px-2.5 sm:py-2 sm:px-4 rounded-lg transition-colors duration-300 whitespace-nowrap"
                 >
-                  <i class="fas fa-edit mr-2"></i> Edit Project
+                  <i class="fas fa-edit mr-1 sm:mr-2 text-xs sm:text-sm"></i>
+                  <span class="hidden xs:inline">Edit Project</span>
                 </button>
               </a>
             </div>
@@ -64,53 +65,40 @@
       </header>
 
       <!-- Main Content -->
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 md:py-8">
         <!-- Project Header -->
-        <div class="mb-8">
-          <div
-            class="flex flex-col md:flex-row md:items-center justify-between"
-          >
+        <div class="mb-6 sm:mb-8">
+          <div class="flex flex-col md:flex-row md:items-center justify-between">
             <div>
-              <h1 class="text-3xl font-bold text-gray-800">
+              <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
                 {{ project.title }}
               </h1>
-              <div class="flex items-center mt-2 space-x-4">
-                <!-- <div class="flex items-center">
-                  <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs mr-2">
-                    <i class="fas fa-project-diagram"></i>
-                  </div>
-                  <span class="text-sm text-gray-600">Project ID: #{{ id }}</span>
-                </div> -->
+              <div class="flex items-center mt-1 sm:mt-2 space-x-2 sm:space-x-3 md:space-x-4">
                 <div class="flex items-center">
                   <div
-                    class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs mr-2"
+                    class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs mr-1 sm:mr-2"
                   >
-                    <i class="fas fa-user-tie"></i>
+                    <i class="fas fa-user-tie text-xs sm:text-sm"></i>
                   </div>
-                  <span class="text-sm text-gray-600"
+                  <span class="text-xs sm:text-sm text-gray-600"
                     >Client: {{ project.client.name }}</span
                   >
                 </div>
               </div>
             </div>
-            <!-- <div class="mt-4 md:mt-0">
-              <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-sm">
-                <i class="fas fa-circle text-xs mr-2 text-white"></i> Active
-              </span>
-            </div> -->
 
-            <div class="text-right">
+            <div class="mt-3 sm:mt-4 md:mt-0 text-right">
               {% if project.status %}
               <span
-                class="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                class="inline-flex items-center px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium bg-green-100 text-green-800"
               >
-                <i class="fas fa-circle text-xs mr-1"></i> Active
+                <i class="fas fa-circle text-xs mr-0.5 sm:mr-1"></i> Active
               </span>
               {% else %}
               <span
-                class="inline-flex items-center px-4 py-2 rounded-full text-xs font-medium bg-red-100 text-red-800"
+                class="inline-flex items-center px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full text-xs font-medium bg-red-100 text-red-800"
               >
-                <i class="fas fa-circle text-xs mr-1"></i> Inactive
+                <i class="fas fa-circle text-xs mr-0.5 sm:mr-1"></i> Inactive
               </span>
               {% endif %}
             </div>
@@ -118,39 +106,39 @@
         </div>
 
         <!-- Project Overview Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           <!-- Left Column - Project Details -->
           <div class="lg:col-span-2">
             <!-- Project Details Card -->
             <div
-              class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-8"
+              class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-6 sm:mb-8"
             >
               <div
-                class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200"
+                class="bg-gradient-to-r from-primary-50 to-blue-50 px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-b border-gray-200"
               >
                 <h2
-                  class="text-xl font-semibold text-gray-800 flex items-center"
+                  class="text-lg sm:text-xl font-semibold text-gray-800 flex items-center"
                 >
-                  <i class="fas fa-info-circle mr-2 text-primary-600"></i>
+                  <i class="fas fa-info-circle mr-2 text-primary-600 text-sm sm:text-base"></i>
                   Project Overview
                 </h2>
               </div>
 
-              <div class="p-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="p-4 sm:p-5 md:p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <!-- Project Title -->
-                  <div class="bg-gray-50 rounded-lg p-5 border border-gray-200">
-                    <div class="flex items-center mb-3">
+                  <div class="bg-gray-50 rounded-lg p-4 sm:p-5 border border-gray-200">
+                    <div class="flex items-center mb-2 sm:mb-3">
                       <div
-                        class="w-10 h-10 rounded-md bg-blue-100 text-blue-600 flex items-center justify-center mr-3"
+                        class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-md bg-blue-100 text-blue-600 flex items-center justify-center mr-2 sm:mr-3"
                       >
-                        <i class="fas fa-heading"></i>
+                        <i class="fas fa-heading text-sm sm:text-base"></i>
                       </div>
                       <div>
-                        <h3 class="text-sm font-medium text-gray-500">
+                        <h3 class="text-xs sm:text-sm font-medium text-gray-500">
                           Project Title
                         </h3>
-                        <p class="text-lg font-bold text-gray-800 mt-1">
+                        <p class="text-base sm:text-lg font-bold text-gray-800 mt-0.5 sm:mt-1">
                           {{ project.title }}
                         </p>
                       </div>
@@ -158,117 +146,65 @@
                   </div>
 
                   <!-- Client Name -->
-                  <div class="bg-gray-50 rounded-lg p-5 border border-gray-200">
-                    <div class="flex items-center mb-3">
+                  <div class="bg-gray-50 rounded-lg p-4 sm:p-5 border border-gray-200">
+                    <div class="flex items-center mb-2 sm:mb-3">
                       <div
-                        class="w-10 h-10 rounded-md bg-green-100 text-green-600 flex items-center justify-center mr-3"
+                        class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-md bg-green-100 text-green-600 flex items-center justify-center mr-2 sm:mr-3"
                       >
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-building text-sm sm:text-base"></i>
                       </div>
                       <div>
-                        <h3 class="text-sm font-medium text-gray-500">
+                        <h3 class="text-xs sm:text-sm font-medium text-gray-500">
                           Client Name
                         </h3>
-                        <p class="text-lg font-bold text-gray-800 mt-1">
+                        <p class="text-base sm:text-lg font-bold text-gray-800 mt-0.5 sm:mt-1">
                           {{ project.client.name }}
                         </p>
                       </div>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-2 sm:mt-3">
                       <a
                         href="{% url 'clients:clients' %}"
                         class="text-xs text-primary-600 hover:text-primary-500 transition-colors duration-300"
                       >
-                        <i class="fas fa-external-link-alt mr-1"></i> View
+                        <i class="fas fa-external-link-alt mr-0.5 sm:mr-1 text-xs"></i> View
                         Client Details
                       </a>
                     </div>
                   </div>
-
-                  <!-- Amount Paid -->
-                  <div class="bg-gray-50 rounded-lg p-5 border border-gray-200">
-                    <div class="flex items-center mb-3">
-                      <div
-                        class="w-10 h-10 rounded-md bg-purple-100 text-purple-600 flex items-center justify-center mr-3"
-                      >
-                        <i class="fas fa-money-check-alt"></i>
-                      </div>
-                      <div>
-                        <h3 class="text-sm font-medium text-gray-500">
-                          Amount Paid
-                        </h3>
-                        <p class="text-lg font-bold text-gray-800 mt-1">
-                          ${{ project.paid }}
-                        </p>
-                      </div>
-                    </div>
-                    <div class="mt-2">
-                      <div
-                        class="flex justify-between text-xs text-gray-600 mb-1"
-                      >
-                        <span>Payment Progress</span>
-                        <span>
-                          {% if project.budget > 0 %} {% widthratio project.paid
-                          project.budget 100 %}% {% else %} 0% {% endif %}
-                        </span>
-                      </div>
-                      <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div
-                          class="bg-primary-600 h-2 rounded-full"
-                          style="width: {% if project.budget > 0 %}{% widthratio project.paid project.budget 100 %}%{% else %}0%{% endif %}"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Project ID -->
-                  <div class="bg-gray-50 rounded-lg p-5 border border-gray-200">
-                    <div class="flex items-center mb-3">
-                      <div
-                        class="w-10 h-10 rounded-md bg-amber-100 text-amber-600 flex items-center justify-center mr-3"
-                      >
-                        <i class="fas fa-hashtag"></i>
-                      </div>
-                      <div>
-                        <h3 class="text-sm font-medium text-gray-500">
-                          Project ID
-                        </h3>
-                        <p class="text-lg font-bold text-gray-800 mt-1">
-                          #{{ id }}
-                        </p>
-                      </div>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-2">
-                      Unique identifier for this project
-                    </p>
-                  </div>
-                </div>
+                </div>  
 
                 <!-- Additional Project Info -->
-                <div class="mt-6 pt-6 border-t border-gray-200">
-                  <h4 class="text-lg font-medium text-gray-700 mb-4">
+                <div class="mt-4 sm:mt-5 md:mt-6 pt-4 sm:pt-5 md:pt-6 border-t border-gray-200">
+                  <h4 class="text-base sm:text-lg font-medium text-gray-700 mb-3 sm:mb-4">
                     Additional Information
                   </h4>
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                     <div class="text-center">
-                      <div class="text-2xl font-bold text-gray-800">
+                      <div class="text-xl sm:text-2xl font-bold text-gray-800">
                         ${{ project.budget|default:"0" }}
                       </div>
-                      <p class="text-sm text-gray-600">Total Budget</p>
+                      <p class="text-xs sm:text-sm text-gray-600">Total Budget</p>
                     </div>
                     <div class="text-center">
-                      <div class="text-2xl font-bold text-gray-800">
-                        {% if project.startDate %} {{ project.startDate|date:"M
-                        d, Y" }} {% else %} Not set {% endif %}
+                      <div class="text-xl sm:text-2xl font-bold text-gray-800">
+                        {% if project.startDate %}
+                          {{ project.startDate|date:"M d, Y" }}
+                        {% else %}
+                          Not set
+                        {% endif %}
                       </div>
-                      <p class="text-sm text-gray-600">Start Date</p>
+                      <p class="text-xs sm:text-sm text-gray-600">Start Date</p>
                     </div>
                     <div class="text-center">
-                      <div class="text-2xl font-bold text-gray-800">
-                        {% if project.deadline %} {{ project.deadline|date:"M d,
-                        Y" }} {% else %} Not set {% endif %}
+                      <div class="text-xl sm:text-2xl font-bold text-gray-800">
+                        {% if project.deadline %}
+                          {{ project.deadline|date:"M d, Y" }}
+                        {% else %}
+                          Not set
+                        {% endif %}
                       </div>
-                      <p class="text-sm text-gray-600">Deadline</p>
+                      <p class="text-xs sm:text-sm text-gray-600">Deadline</p>
                     </div>
                   </div>
                 </div>
@@ -280,84 +216,83 @@
               class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden"
             >
               <div
-                class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200"
+                class="bg-gradient-to-r from-primary-50 to-blue-50 px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-b border-gray-200"
               >
                 <div
                   class="flex flex-col sm:flex-row sm:items-center justify-between"
                 >
                   <h2
-                    class="text-xl font-semibold text-gray-800 flex items-center"
+                    class="text-lg sm:text-xl font-semibold text-gray-800 flex items-center"
                   >
-                    <i class="fas fa-tasks mr-2 text-primary-600"></i> Sprints
+                    <i class="fas fa-tasks mr-2 text-primary-600 text-sm sm:text-base"></i> Sprints
                   </h2>
                   <a
                     href="{% url 'sprints:createSprint' id %}"
                     class="mt-2 sm:mt-0"
                   >
                     <button
-                      class="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-medium py-2 px-4 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-sm hover:shadow flex items-center"
+                      class="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-medium py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-sm hover:shadow flex items-center text-xs sm:text-sm md:text-base"
                     >
-                      <i class="fas fa-plus mr-2"></i> Create Sprint
+                      <i class="fas fa-plus mr-1 sm:mr-2 text-xs sm:text-sm"></i> Create Sprint
                     </button>
                   </a>
                 </div>
-                <p class="text-sm text-gray-600 mt-1">
+                <p class="text-xs sm:text-sm text-gray-600 mt-1">
                   Manage development sprints for this project
                 </p>
               </div>
 
-              <div class="p-6">
+              <div class="p-4 sm:p-5 md:p-6">
                 {% if sprints %}
                 <!-- Sprints List -->
-                <div class="space-y-4">
+                <div class="space-y-3 sm:space-y-4">
                   {% for sprint in sprints %}
                   <div
                     class="border border-gray-200 rounded-lg hover:border-primary-300 transition-colors duration-300"
                   >
-                    <div class="p-4">
+                    <div class="p-3 sm:p-4">
                       <div
                         class="flex flex-col md:flex-row md:items-center justify-between"
                       >
-                        <div class="flex items-center mb-3 md:mb-0">
+                        <div class="flex items-center mb-2 sm:mb-3 md:mb-0">
                           <div
-                            class="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-100 to-blue-50 text-blue-600 flex items-center justify-center mr-4"
+                            class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg bg-gradient-to-r from-blue-100 to-blue-50 text-blue-600 flex items-center justify-center mr-2 sm:mr-3 md:mr-4"
                           >
-                            <i class="fas fa-sprint"></i>
+                            <i class="fas fa-sprint text-sm sm:text-base"></i>
                           </div>
                           <div>
-                            <h3 class="font-semibold text-gray-800">
+                            <h3 class="font-semibold text-gray-800 text-sm sm:text-base md:text-lg">
                               {{ sprint.name }}
                             </h3>
-                            <div class="flex items-center mt-1">
+                            <div class="flex items-center mt-0.5 sm:mt-1">
                               {% if sprint.isActive %}
                               <span
-                                class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800"
+                                class="inline-flex items-center px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded text-xs font-medium bg-green-100 text-green-800"
                               >
-                                <i class="fas fa-circle text-xs mr-1"></i>
+                                <i class="fas fa-circle text-xs mr-0.5 sm:mr-1"></i>
                                 Active
                               </span>
                               {% else %}
                               <span
-                                class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800"
+                                class="inline-flex items-center px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800"
                               >
-                                <i class="fas fa-circle text-xs mr-1"></i> Not
+                                <i class="fas fa-circle text-xs mr-0.5 sm:mr-1"></i> Not
                                 Active
                               </span>
                               {% endif %}
-                              <!-- <span class="text-xs text-gray-500 ml-2">Sprint ID: {{ sprint.id }}</span> -->
                             </div>
                           </div>
                         </div>
 
-                        <div class="flex items-center space-x-3">
+                        <div class="flex items-center space-x-2 sm:space-x-3">
                           <a
                             href="{% url 'userStories:displayUserStories' sprint.id %}"
                             class="inline-flex"
                           >
                             <button
-                              class="bg-primary-50 hover:bg-primary-100 text-primary-700 font-medium py-2 px-4 rounded-lg transition-colors duration-300 border border-primary-200 hover:border-primary-300 flex items-center"
+                              class="bg-primary-50 hover:bg-primary-100 text-primary-700 font-medium py-1.5 px-2.5 sm:py-2 sm:px-4 rounded-lg transition-colors duration-300 border border-primary-200 hover:border-primary-300 flex items-center text-xs sm:text-sm"
                             >
-                              <i class="fas fa-eye mr-2"></i> View User Stories
+                              <i class="fas fa-eye mr-1 sm:mr-2 text-xs sm:text-sm"></i> View
                             </button>
                           </a>
                           <a
@@ -365,68 +300,50 @@
                             class="inline-flex"
                           >
                             <button
-                              class="bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center"
+                              class="bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-1.5 px-2.5 sm:py-2 sm:px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center text-xs sm:text-sm"
                             >
-                              <i class="fas fa-edit mr-2"></i> Edit
+                              <i class="fas fa-edit mr-1 sm:mr-2 text-xs sm:text-sm"></i> Edit
                             </button>
                           </a>
                         </div>
                       </div>
-
-                      <!-- Sprint Progress -->
-                      <!-- <div class="mt-4 pt-4 border-t border-gray-100">
-                        <div class="flex justify-between text-sm text-gray-600 mb-2">
-                          <span>Sprint Progress</span>
-                          <span>65% Complete</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                          <div class="bg-green-500 h-2 rounded-full" style="width: 65%"></div>
-                        </div>
-                      </div> -->
                     </div>
                   </div>
                   {% endfor %}
                 </div>
 
                 <!-- Sprints Stats -->
-                <div class="mt-6 pt-6 border-t border-gray-200">
-                  <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
-                    <div class="text-center p-3 bg-gray-50 rounded-lg">
-                      <div class="text-lg font-bold text-gray-800">
+                <div class="mt-4 sm:mt-5 md:mt-6 pt-4 sm:pt-5 md:pt-6 border-t border-gray-200">
+                  <div class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4">
+                    <div class="text-center p-2 sm:p-3 bg-gray-50 rounded-lg">
+                      <div class="text-base sm:text-lg font-bold text-gray-800">
                         {{ sprints|length }}
                       </div>
-                      <p class="text-sm text-gray-600">Total Sprints</p>
+                      <p class="text-xs sm:text-sm text-gray-600">Total Sprints</p>
                     </div>
-                    <div class="text-center p-3 bg-gray-50 rounded-lg">
-                      <div class="text-lg font-bold text-gray-800">
-                        {% with active_sprints=sprints|length|default:0 %} {{
-                        active_sprints }} {% endwith %}
+                    <div class="text-center p-2 sm:p-3 bg-gray-50 rounded-lg">
+                      <div class="text-base sm:text-lg font-bold text-gray-800">
+                        {% with active_sprints=sprints|length|default:0 %} 
+                          {{ active_sprints }} 
+                        {% endwith %}
                       </div>
-                      <p class="text-sm text-gray-600">Active Sprints</p>
+                      <p class="text-xs sm:text-sm text-gray-600">Active Sprints</p>
                     </div>
-                    <!-- <div class="text-center p-3 bg-gray-50 rounded-lg">
-                      <div class="text-lg font-bold text-gray-800">24</div>
-                      <p class="text-sm text-gray-600">Total Tasks</p>
-                    </div>
-                    <div class="text-center p-3 bg-gray-50 rounded-lg">
-                      <div class="text-lg font-bold text-gray-800">18</div>
-                      <p class="text-sm text-gray-600">Completed</p>
-                    </div> -->
                   </div>
                 </div>
 
                 {% else %}
                 <!-- No Sprints State -->
-                <div class="text-center py-12">
+                <div class="text-center py-8 sm:py-10 md:py-12">
                   <div
-                    class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-6"
+                    class="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4 sm:mb-5 md:mb-6"
                   >
-                    <i class="fas fa-tasks text-gray-400 text-3xl"></i>
+                    <i class="fas fa-tasks text-gray-400 text-2xl sm:text-3xl"></i>
                   </div>
-                  <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                  <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3">
                     No Sprints Yet
                   </h3>
-                  <p class="text-gray-600 max-w-md mx-auto mb-8">
+                  <p class="text-gray-600 max-w-md mx-auto mb-6 sm:mb-8 text-sm sm:text-base">
                     Sprints help you organize work into manageable iterations.
                     Create your first sprint to start tracking development
                     progress.
@@ -436,9 +353,9 @@
                     class="inline-flex"
                   >
                     <button
-                      class="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center"
+                      class="bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-2.5 px-4 sm:py-3 sm:px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center text-sm sm:text-base"
                     >
-                      <i class="fas fa-plus mr-2"></i> Create First Sprint
+                      <i class="fas fa-plus mr-1 sm:mr-2"></i> Create First Sprint
                     </button>
                   </a>
                 </div>
@@ -451,168 +368,111 @@
           <div>
             <!-- Quick Actions -->
             <div
-              class="bg-white rounded-xl shadow-md border border-gray-200 p-6 mb-6"
+              class="bg-white rounded-xl shadow-md border border-gray-200 p-4 sm:p-5 md:p-6 mb-4 sm:mb-6"
             >
               <h3
-                class="text-lg font-semibold text-gray-800 mb-4 flex items-center"
+                class="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center"
               >
-                <i class="fas fa-bolt mr-2 text-primary-600"></i> Quick Actions
+                <i class="fas fa-bolt mr-2 text-primary-600 text-sm sm:text-base"></i> Quick Actions
               </h3>
-              <div class="space-y-3">
+              <div class="space-y-2 sm:space-y-3">
                 <a
                   href="{% url 'projects:editProject' project.id %}"
                   class="block"
                 >
                   <button
-                    class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center"
+                    class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-2 sm:py-2.5 md:py-3 px-3 sm:px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center text-xs sm:text-sm md:text-base"
                   >
-                    <i class="fas fa-edit mr-3 text-primary-600"></i>
+                    <i class="fas fa-edit mr-2 sm:mr-3 text-primary-600 text-sm"></i>
                     <span>Edit Project Details</span>
                   </button>
                 </a>
                 <a href="{% url 'sprints:createSprint' id %}" class="block">
                   <button
-                    class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center"
+                    class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-2 sm:py-2.5 md:py-3 px-3 sm:px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center text-xs sm:text-sm md:text-base"
                   >
-                    <i class="fas fa-plus-circle mr-3 text-green-600"></i>
+                    <i class="fas fa-plus-circle mr-2 sm:mr-3 text-green-600 text-sm"></i>
                     <span>Add New Sprint</span>
                   </button>
                 </a>
-                <button
-                  class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center"
-                >
-                  <i class="fas fa-file-export mr-3 text-purple-600"></i>
-                  <span>Export Project Data</span>
-                </button>
-                <button
-                  class="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors duration-300 border border-gray-300 hover:border-gray-400 flex items-center"
-                >
-                  <i class="fas fa-chart-bar mr-3 text-amber-600"></i>
-                  <span>View Analytics</span>
-                </button>
               </div>
             </div>
 
             <!-- Project Status -->
             <div
-              class="bg-white rounded-xl shadow-md border border-gray-200 p-6 mb-6"
+              class="bg-white rounded-xl shadow-md border border-gray-200 p-4 sm:p-5 md:p-6 mb-4 sm:mb-6"
             >
               <h3
-                class="text-lg font-semibold text-gray-800 mb-4 flex items-center"
+                class="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center"
               >
-                <i class="fas fa-chart-line mr-2 text-primary-600"></i> Project
+                <i class="fas fa-chart-line mr-2 text-primary-600 text-sm sm:text-base"></i> Project
                 Status
               </h3>
-              <div class="space-y-4">
-                <!-- <div>
-                  <div class="flex justify-between text-sm text-gray-600 mb-1">
-                    <span>Overall Progress</span>
-                    <span>42%</span>
-                  </div>
-                  <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div class="bg-primary-600 h-2 rounded-full" style="width: 42%"></div>
-                  </div>
-                </div> -->
+              <div class="space-y-3 sm:space-y-4">
                 <div>
-                  <div class="flex justify-between text-sm text-gray-600 mb-1">
+                  <div class="flex justify-between text-xs sm:text-sm text-gray-600 mb-0.5 sm:mb-1">
                     <span>Budget Utilization</span>
                     <span>
-                      {% if project.budget > 0 %} {% widthratio project.paid
-                      project.budget 100 %}% {% else %} 0% {% endif %}
+                      {% if project.budget > 0 %} 
+                        {% widthratio project.paid project.budget 100 %}%
+                      {% else %} 
+                        0% 
+                      {% endif %}
                     </span>
                   </div>
-                  <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="w-full bg-gray-200 rounded-full h-1.5 sm:h-2">
                     <div
-                      class="bg-green-500 h-2 rounded-full"
+                      class="bg-green-500 h-1.5 sm:h-2 rounded-full"
                       style="width: {% if project.budget > 0 %}{% widthratio project.paid project.budget 100 %}%{% else %}0%{% endif %}"
                     ></div>
                   </div>
                 </div>
-                <div class="pt-4 border-t border-gray-200">
-                  <div class="text-sm text-gray-600 mb-2">Timeline Status</div>
+                <div class="pt-3 sm:pt-4 border-t border-gray-200">
+                  <div class="text-xs sm:text-sm text-gray-600 mb-1.5 sm:mb-2">Timeline Status</div>
                   <div class="flex items-center">
                     <div class="flex-1">
-                      <div class="text-xs text-gray-500">Days Remaining</div>
-                      {{remainingDays }}
-
-                      <!-- <div class="text-lg font-bold text-gray-800">14</div> -->
+                      <div class="text-xs text-gray-500">Days Status</div>
+                      <div id="days-status" class="text-base sm:text-lg font-bold">
+                        <!-- Will be populated by JavaScript -->
+                      </div>
                     </div>
                     <div class="flex-1">
                       <div class="text-xs text-gray-500">On Schedule</div>
-                      <div class="text-lg font-bold text-green-600">Yes</div>
+                      <div id="schedule-status" class="text-base sm:text-lg font-bold">
+                        <!-- Will be populated by JavaScript -->
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Recent Activity -->
-            <!-- <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6">
-              <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                <i class="fas fa-history mr-2 text-primary-600"></i> Recent Activity
-              </h3>
-              <div class="space-y-4">
-                <div class="flex items-start">
-                  <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
-                    <i class="fas fa-sprint text-sm"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-700">Sprint planning completed</p>
-                    <p class="text-xs text-gray-500">2 hours ago</p>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
-                    <i class="fas fa-dollar-sign text-sm"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-700">Payment received</p>
-                    <p class="text-xs text-gray-500">1 day ago</p>
-                  </div>
-                </div>
-                <div class="flex items-start">
-                  <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
-                    <i class="fas fa-user-check text-sm"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-700">Client review completed</p>
-                    <p class="text-xs text-gray-500">3 days ago</p>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-4 pt-4 border-t border-gray-200">
-                <button class="w-full text-sm text-primary-600 hover:text-primary-500 transition-colors duration-300 flex items-center justify-center">
-                  <i class="fas fa-history mr-2"></i> View All Activity
-                </button>
-              </div>
-            </div> -->
           </div>
         </div>
       </main>
 
       <!-- Footer -->
-      <footer class="mt-12 border-t border-gray-200 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <footer class="mt-8 sm:mt-10 md:mt-12 border-t border-gray-200 bg-white">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-5 md:py-6">
           <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="text-gray-500 text-sm mb-4 md:mb-0">
+            <div class="text-gray-500 text-xs sm:text-sm mb-3 md:mb-0 text-center md:text-left">
               &copy; WorkFlow Project Details • {{ project.title }}
             </div>
-            <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-wrap justify-center">
               <a
                 href="{% url 'dashboard:home' %}"
-                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1"
                 >Home</a
               >
-              <span class="text-gray-300">|</span>
+              <span class="text-gray-300 hidden sm:inline">|</span>
               <a
                 href="{% url 'projects:showProjects' %}"
-                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1"
                 >All Projects</a
               >
-              <span class="text-gray-300">|</span>
+              <span class="text-gray-300 hidden sm:inline">|</span>
               <a
                 href="{% url 'dashboard:dashboard' %}"
-                class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300"
+                class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1"
                 >Dashboard</a
               >
             </div>
@@ -620,5 +480,69 @@
         </div>
       </footer>
     </div>
+
+    <!-- JavaScript to handle timeline status -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get the remaining days from Django context
+        const remainingDays = parseInt("{{ remainingDays }}") || 0;
+        
+        // Get deadline date for display
+        const deadline = "{{ project.deadline|date:'M d, Y' }}";
+        const hasDeadline = deadline !== "None";
+        
+        // Elements to update
+        const daysStatusElement = document.getElementById('days-status');
+        const scheduleStatusElement = document.getElementById('schedule-status');
+        
+        if (!hasDeadline) {
+          // No deadline set
+          daysStatusElement.textContent = 'No deadline';
+          daysStatusElement.className = 'text-base sm:text-lg font-bold text-gray-600';
+          scheduleStatusElement.textContent = 'N/A';
+          scheduleStatusElement.className = 'text-base sm:text-lg font-bold text-gray-600';
+        } else if (remainingDays > 0) {
+          // Deadline in the future
+          if (remainingDays === 1) {
+            daysStatusElement.textContent = '1 day left';
+            daysStatusElement.className = 'text-base sm:text-lg font-bold text-yellow-600';
+            scheduleStatusElement.textContent = 'Urgent';
+            scheduleStatusElement.className = 'text-base sm:text-lg font-bold text-yellow-600';
+          } else {
+            daysStatusElement.textContent = `${remainingDays} days left`;
+            daysStatusElement.className = 'text-base sm:text-lg font-bold text-blue-600';
+            
+            // Determine schedule status
+            if (remainingDays >= 14) {
+              scheduleStatusElement.textContent = 'On Track';
+              scheduleStatusElement.className = 'text-base sm:text-lg font-bold text-green-600';
+            } else if (remainingDays >= 7) {
+              scheduleStatusElement.textContent = 'Warning';
+              scheduleStatusElement.className = 'text-base sm:text-lg font-bold text-yellow-600';
+            } else {
+              scheduleStatusElement.textContent = 'Urgent';
+              scheduleStatusElement.className = 'text-base sm:text-lg font-bold text-red-600';
+            }
+          }
+        } else if (remainingDays === 0) {
+          // Deadline is today
+          daysStatusElement.textContent = 'Due today';
+          daysStatusElement.className = 'text-base sm:text-lg font-bold text-red-600';
+          scheduleStatusElement.textContent = 'Urgent';
+          scheduleStatusElement.className = 'text-base sm:text-lg font-bold text-red-600';
+        } else {
+          // Deadline has passed (negative remainingDays)
+          const daysOverdue = Math.abs(remainingDays);
+          if (daysOverdue === 1) {
+            daysStatusElement.textContent = '1 day overdue';
+          } else {
+            daysStatusElement.textContent = `${daysOverdue} days overdue`;
+          }
+          daysStatusElement.className = 'text-base sm:text-lg font-bold text-red-600';
+          scheduleStatusElement.textContent = 'Behind';
+          scheduleStatusElement.className = 'text-base sm:text-lg font-bold text-red-600';
+        }
+      });
+    </script>
   </body>
 </html>

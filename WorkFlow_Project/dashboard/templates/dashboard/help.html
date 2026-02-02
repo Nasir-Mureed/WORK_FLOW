@@ -35,14 +35,36 @@
                         <span class="text-xl font-bold">WorkFlow</span>
                     </a>
                 </div>
-                <div class="flex items-center space-x-6">
-                    <a href="{% url 'dashboard:home' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300">Home</a>
-                    <a href="{% url 'dashboard:dashboard' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300">Dashboard</a>
-                    <a href="{% url 'dashboard:about' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300">About</a>
-                    <a href="{% url 'dashboard:contact' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300">Contact</a>
-                    <a href="#" class="text-primary-600 font-medium">Help</a>
-                    <a href="{% url 'accounts:login' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300">Login</a>
-                    <a href="{% url 'accounts:signup' %}" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
+                    <a href="{% url 'dashboard:home' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 text-sm lg:text-base">Home</a>
+                    <a href="{% url 'dashboard:dashboard' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 text-sm lg:text-base">Dashboard</a>
+                    <a href="{% url 'dashboard:about' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 text-sm lg:text-base">About</a>
+                    <a href="{% url 'dashboard:contact' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 text-sm lg:text-base">Contact</a>
+                    <a href="#" class="text-primary-600 font-medium text-sm lg:text-base">Help</a>
+                    <a href="{% url 'accounts:login' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 text-sm lg:text-base">Login</a>
+                    <a href="{% url 'accounts:signup' %}" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-3 lg:px-4 rounded-lg transition-colors duration-300 text-sm lg:text-base">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="{% url 'dashboard:home' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 py-2 border-b border-gray-100">Home</a>
+                    <a href="{% url 'dashboard:dashboard' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 py-2 border-b border-gray-100">Dashboard</a>
+                    <a href="{% url 'dashboard:about' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 py-2 border-b border-gray-100">About</a>
+                    <a href="{% url 'dashboard:contact' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 py-2 border-b border-gray-100">Contact</a>
+                    <a href="#" class="text-primary-600 font-medium py-2 border-b border-gray-100">Help</a>
+                    <a href="{% url 'accounts:login' %}" class="text-gray-600 hover:text-primary-600 transition-colors duration-300 py-2 border-b border-gray-100">Login</a>
+                    <a href="{% url 'accounts:signup' %}" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-300 text-center">
                         Get Started
                     </a>
                 </div>
@@ -52,17 +74,17 @@
 
     <!-- Hero Section -->
     <div class="bg-gradient-to-r from-primary-600 to-primary-700 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
             <div class="text-center max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Help & User Guide</h1>
-                <p class="text-xl text-primary-100 opacity-90">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">Help & User Guide</h1>
+                <p class="text-lg sm:text-xl text-primary-100 opacity-90 px-2">
                     Welcome to the Help Center. This guide will walk you through the complete workflow so you can manage projects, clients, and progress efficiently.
                 </p>
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <a href="#getting-started" class="inline-flex items-center bg-white text-primary-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-all duration-300 shadow-lg">
+                <div class="mt-6 md:mt-8 flex flex-wrap justify-center gap-3 md:gap-4">
+                    <a href="#getting-started" class="inline-flex items-center bg-white text-primary-700 font-semibold py-3 px-5 md:px-6 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-all duration-300 shadow-lg text-sm md:text-base">
                         <i class="fas fa-play mr-2"></i> Getting Started
                     </a>
-                    <a href="#faq" class="inline-flex items-center bg-white/10 border border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-all duration-300">
+                    <a href="#faq" class="inline-flex items-center bg-white/10 border border-white text-white font-semibold py-3 px-5 md:px-6 rounded-lg hover:bg-white hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-all duration-300 text-sm md:text-base">
                         <i class="fas fa-question-circle mr-2"></i> FAQ
                     </a>
                 </div>
@@ -71,12 +93,12 @@
     </div>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <!-- Getting Started Section -->
-        <div id="getting-started" class="mb-16 scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Getting Started</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">Follow these steps to set up your workspace correctly.</p>
+        <div id="getting-started" class="mb-12 md:mb-16 scroll-mt-20">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Getting Started</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-sm md:text-base px-2">Follow these steps to set up your workspace correctly.</p>
             </div>
 
             <!-- Steps Timeline -->
@@ -85,50 +107,50 @@
                 <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-primary-200 hidden md:block"></div>
 
                 <!-- Step 1: Create Clients -->
-                <div class="mb-16 relative">
+                <div class="mb-12 md:mb-16 relative">
                     <div class="md:flex md:items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
-                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-primary-600 to-primary-700 text-white text-2xl font-bold shadow-lg mb-4">
+                        <div class="md:w-1/2 md:pr-8 lg:pr-12 md:text-right mb-6 md:mb-0">
+                            <div class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-primary-600 to-primary-700 text-white text-xl md:text-2xl font-bold shadow-lg mb-3 md:mb-4">
                                 1
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Create Clients</h3>
-                            <p class="text-gray-600 mb-4">Before creating projects, add your clients.</p>
-                            <div class="bg-green-50 border border-green-200 rounded-lg p-4 inline-block">
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2 md:mb-4">Create Clients</h3>
+                            <p class="text-gray-600 text-sm md:text-base mb-3 md:mb-4">Before creating projects, add your clients.</p>
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-3 md:p-4 inline-block">
                                 <div class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
-                                    <span class="text-green-800 font-medium">Each project must be linked to a client.</span>
+                                    <i class="fas fa-check-circle text-green-600 mr-2 text-sm md:text-base"></i>
+                                    <span class="text-green-800 font-medium text-sm md:text-base">Each project must be linked to a client.</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="md:w-1/2 md:pl-12">
-                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6">
-                                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                                    <i class="fas fa-user-tie mr-2 text-primary-600"></i> How to do it:
+                        <div class="md:w-1/2 md:pl-8 lg:pl-12 mt-6 md:mt-0">
+                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-6">
+                                <h4 class="text-lg font-semibold text-gray-800 mb-3 md:mb-4 flex items-center">
+                                    <i class="fas fa-user-tie mr-2 text-primary-600 text-sm md:text-base"></i> How to do it:
                                 </h4>
-                                <ol class="space-y-4">
+                                <ol class="space-y-3 md:space-y-4">
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Go to <a href="{% url 'clients:clients' %}" class="text-primary-600 hover:text-primary-500 font-medium">Clients</a></span>
+                                        <span class="text-gray-700 text-sm md:text-base">Go to <a href="{% url 'clients:clients' %}" class="text-primary-600 hover:text-primary-500 font-medium">Clients</a></span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Click <span class="font-medium text-primary-600">Add Client</span></span>
+                                        <span class="text-gray-700 text-sm md:text-base">Click <span class="font-medium text-primary-600">Add Client</span></span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Fill in client details (name, email, etc.)</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Fill in client details (name, email, etc.)</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Click <span class="font-medium text-green-600">Save</span> to create the client</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Click <span class="font-medium text-green-600">Save</span> to create the client</span>
                                     </li>
                                 </ol>
                             </div>
@@ -137,109 +159,109 @@
                 </div>
 
                 <!-- Project Workflow Header -->
-                <div class="text-center mb-12">
-                    <div class="inline-block bg-gradient-to-r from-primary-50 to-blue-50 border border-primary-100 rounded-xl px-6 py-3">
-                        <h3 class="text-xl font-semibold text-gray-800">Project Workflow (Recommended Order)</h3>
+                <div class="text-center mb-8 md:mb-12">
+                    <div class="inline-block bg-gradient-to-r from-primary-50 to-blue-50 border border-primary-100 rounded-xl px-4 py-2 md:px-6 md:py-3">
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-800">Project Workflow (Recommended Order)</h3>
                     </div>
                 </div>
 
                 <!-- Step 2: Create a Project -->
-                <div class="mb-16 relative">
+                <div class="mb-12 md:mb-16 relative">
                     <div class="md:flex md:items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0 order-2 md:order-1">
-                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6">
-                                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                                    <i class="fas fa-project-diagram mr-2 text-primary-600"></i> Instructions:
+                        <div class="md:w-1/2 md:pr-8 lg:pr-12 md:text-right mb-6 md:mb-0 order-2 md:order-1">
+                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-6">
+                                <h4 class="text-lg font-semibold text-gray-800 mb-3 md:mb-4 flex items-center">
+                                    <i class="fas fa-project-diagram mr-2 text-primary-600 text-sm md:text-base"></i> Instructions:
                                 </h4>
-                                <ol class="space-y-4">
+                                <ol class="space-y-3 md:space-y-4">
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Navigate to <a href="{% url 'projects:showProjects' %}" class="text-primary-600 hover:text-primary-500 font-medium">Projects</a></span>
+                                        <span class="text-gray-700 text-sm md:text-base">Navigate to <a href="{% url 'projects:showProjects' %}" class="text-primary-600 hover:text-primary-500 font-medium">Projects</a></span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Click <span class="font-medium text-primary-600">Add Project</span></span>
+                                        <span class="text-gray-700 text-sm md:text-base">Click <span class="font-medium text-primary-600">Add Project</span></span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Select a client from the dropdown</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Select a client from the dropdown</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Define project name and description</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Define project name and description</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Click <span class="font-medium text-green-600">Save Project</span></span>
+                                        <span class="text-gray-700 text-sm md:text-base">Click <span class="font-medium text-green-600">Save Project</span></span>
                                     </li>
                                 </ol>
                             </div>
                         </div>
-                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
-                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-green-600 to-green-700 text-white text-2xl font-bold shadow-lg mb-4">
+                        <div class="md:w-1/2 md:pl-8 lg:pl-12 order-1 md:order-2 mb-6 md:mb-0">
+                            <div class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-green-600 to-green-700 text-white text-xl md:text-2xl font-bold shadow-lg mb-3 md:mb-4">
                                 2
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Create a Project</h3>
-                            <p class="text-gray-600">Projects are the core of the system. They contain all your tasks, sprints, and progress tracking.</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2 md:mb-4">Create a Project</h3>
+                            <p class="text-gray-600 text-sm md:text-base">Projects are the core of the system. They contain all your tasks, sprints, and progress tracking.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Step 3: Define Project Plan -->
-                <div class="mb-16 relative">
+                <div class="mb-12 md:mb-16 relative">
                     <div class="md:flex md:items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
-                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 text-white text-2xl font-bold shadow-lg mb-4">
+                        <div class="md:w-1/2 md:pr-8 lg:pr-12 md:text-right mb-6 md:mb-0">
+                            <div class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 text-white text-xl md:text-2xl font-bold shadow-lg mb-3 md:mb-4">
                                 3
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Define Project Plan</h3>
-                            <p class="text-gray-600 mb-4">Planning helps you stay on track and organized.</p>
-                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 inline-block">
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2 md:mb-4">Define Project Plan</h3>
+                            <p class="text-gray-600 text-sm md:text-base mb-3 md:mb-4">Planning helps you stay on track and organized.</p>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4 inline-block">
                                 <div class="flex items-start">
-                                    <i class="fas fa-lightbulb text-amber-600 mr-2 mt-0.5"></i>
-                                    <span class="text-blue-800"><span class="font-medium">Tip:</span> Break work into small, manageable tasks.</span>
+                                    <i class="fas fa-lightbulb text-amber-600 mr-2 mt-0.5 text-sm md:text-base"></i>
+                                    <span class="text-blue-800 text-sm md:text-base"><span class="font-medium">Tip:</span> Break work into small, manageable tasks.</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="md:w-1/2 md:pl-12">
-                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6">
-                                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                                    <i class="fas fa-tasks mr-2 text-primary-600"></i> Instructions:
+                        <div class="md:w-1/2 md:pl-8 lg:pl-12 mt-6 md:mt-0">
+                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-6">
+                                <h4 class="text-lg font-semibold text-gray-800 mb-3 md:mb-4 flex items-center">
+                                    <i class="fas fa-tasks mr-2 text-primary-600 text-sm md:text-base"></i> Instructions:
                                 </h4>
-                                <ol class="space-y-4">
+                                <ol class="space-y-3 md:space-y-4">
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Open a project from your projects list</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Open a project from your projects list</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Go to <span class="font-medium">Project Plan</span> section</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Go to <span class="font-medium">Project Plan</span> section</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Add tasks or milestones</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Add tasks or milestones</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Set deadlines and priorities for each task</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Set deadlines and priorities for each task</span>
                                     </li>
                                 </ol>
                             </div>
@@ -248,41 +270,41 @@
                 </div>
 
                 <!-- Step 4: Track Progress -->
-                <div class="mb-16 relative">
+                <div class="mb-12 md:mb-16 relative">
                     <div class="md:flex md:items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0 order-2 md:order-1">
-                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6">
-                                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                                    <i class="fas fa-chart-line mr-2 text-primary-600"></i> Instructions:
+                        <div class="md:w-1/2 md:pr-8 lg:pr-12 md:text-right mb-6 md:mb-0 order-2 md:order-1">
+                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-6">
+                                <h4 class="text-lg font-semibold text-gray-800 mb-3 md:mb-4 flex items-center">
+                                    <i class="fas fa-chart-line mr-2 text-primary-600 text-sm md:text-base"></i> Instructions:
                                 </h4>
-                                <ol class="space-y-4">
+                                <ol class="space-y-3 md:space-y-4">
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Update task status regularly (To Do → In Progress → Done)</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Update task status regularly (To Do → In Progress → Done)</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Mark completed tasks to track progress</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Mark completed tasks to track progress</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Monitor overall project progress from the dashboard</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Monitor overall project progress from the dashboard</span>
                                     </li>
                                 </ol>
                             </div>
                         </div>
-                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
-                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-purple-700 text-white text-2xl font-bold shadow-lg mb-4">
+                        <div class="md:w-1/2 md:pl-8 lg:pl-12 order-1 md:order-2 mb-6 md:mb-0">
+                            <div class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-600 to-purple-700 text-white text-xl md:text-2xl font-bold shadow-lg mb-3 md:mb-4">
                                 4
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Track Progress</h3>
-                            <p class="text-gray-600">Keep your project status updated to maintain visibility and ensure timely delivery.</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2 md:mb-4">Track Progress</h3>
+                            <p class="text-gray-600 text-sm md:text-base">Keep your project status updated to maintain visibility and ensure timely delivery.</p>
                         </div>
                     </div>
                 </div>
@@ -290,42 +312,42 @@
                 <!-- Step 5: Monitor Stats -->
                 <div class="relative">
                     <div class="md:flex md:items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
-                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-white text-2xl font-bold shadow-lg mb-4">
+                        <div class="md:w-1/2 md:pr-8 lg:pr-12 md:text-right mb-6 md:mb-0">
+                            <div class="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-white text-xl md:text-2xl font-bold shadow-lg mb-3 md:mb-4">
                                 5
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Monitor Stats</h3>
-                            <p class="text-gray-600">Stats give insight into performance and help you make data-driven decisions.</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2 md:mb-4">Monitor Stats</h3>
+                            <p class="text-gray-600 text-sm md:text-base">Stats give insight into performance and help you make data-driven decisions.</p>
                         </div>
-                        <div class="md:w-1/2 md:pl-12">
-                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6">
-                                <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                                    <i class="fas fa-chart-bar mr-2 text-primary-600"></i> Instructions:
+                        <div class="md:w-1/2 md:pl-8 lg:pl-12 mt-6 md:mt-0">
+                            <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-6">
+                                <h4 class="text-lg font-semibold text-gray-800 mb-3 md:mb-4 flex items-center">
+                                    <i class="fas fa-chart-bar mr-2 text-primary-600 text-sm md:text-base"></i> Instructions:
                                 </h4>
-                                <ol class="space-y-4">
+                                <ol class="space-y-3 md:space-y-4">
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Visit the <a href="{% url 'dashboard:dashboard' %}" class="text-primary-600 hover:text-primary-500 font-medium">Dashboard</a></span>
+                                        <span class="text-gray-700 text-sm md:text-base">Visit the <a href="{% url 'dashboard:dashboard' %}" class="text-primary-600 hover:text-primary-500 font-medium">Dashboard</a></span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Review project completion rates and timelines</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Review project completion rates and timelines</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Analyze workload distribution and team productivity</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Analyze workload distribution and team productivity</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
+                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700">Use insights to optimize future project planning</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Use insights to optimize future project planning</span>
                                     </li>
                                 </ol>
                             </div>
@@ -336,176 +358,176 @@
         </div>
 
         <!-- Managing Multiple Projects -->
-        <div class="mb-16">
-            <div class="bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-8">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <i class="fas fa-layer-group mr-3 text-primary-600"></i> Managing Multiple Projects
+        <div class="mb-12 md:mb-16">
+            <div class="bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-6 md:p-8">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <i class="fas fa-layer-group mr-3 text-primary-600 text-sm md:text-base"></i> Managing Multiple Projects
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-lg p-6 border border-gray-200">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mb-4">
-                            <i class="fas fa-project-diagram"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="bg-white rounded-lg p-4 md:p-6 border border-gray-200">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mb-3 md:mb-4">
+                            <i class="fas fa-project-diagram text-sm md:text-base"></i>
                         </div>
-                        <h4 class="text-lg font-semibold text-gray-800 mb-3">Independent Projects</h4>
-                        <p class="text-gray-600">Each project works independently with its own clients, tasks, and timelines.</p>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2 md:mb-3">Independent Projects</h4>
+                        <p class="text-gray-600 text-sm md:text-base">Each project works independently with its own clients, tasks, and timelines.</p>
                     </div>
-                    <div class="bg-white rounded-lg p-6 border border-gray-200">
-                        <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-4">
-                            <i class="fas fa-exchange-alt"></i>
+                    <div class="bg-white rounded-lg p-4 md:p-6 border border-gray-200">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-3 md:mb-4">
+                            <i class="fas fa-exchange-alt text-sm md:text-base"></i>
                         </div>
-                        <h4 class="text-lg font-semibold text-gray-800 mb-3">Easy Switching</h4>
-                        <p class="text-gray-600">You can switch between projects anytime from the projects dashboard.</p>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2 md:mb-3">Easy Switching</h4>
+                        <p class="text-gray-600 text-sm md:text-base">You can switch between projects anytime from the projects dashboard.</p>
                     </div>
-                    <div class="bg-white rounded-lg p-6 border border-gray-200">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-4">
-                            <i class="fas fa-tachometer-alt"></i>
+                    <div class="bg-white rounded-lg p-4 md:p-6 border border-gray-200">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-3 md:mb-4">
+                            <i class="fas fa-tachometer-alt text-sm md:text-base"></i>
                         </div>
-                        <h4 class="text-lg font-semibold text-gray-800 mb-3">Quick Overview</h4>
-                        <p class="text-gray-600">Dashboard provides a quick overview of all active work and project statuses.</p>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2 md:mb-3">Quick Overview</h4>
+                        <p class="text-gray-600 text-sm md:text-base">Dashboard provides a quick overview of all active work and project statuses.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Best Practices -->
-        <div class="mb-16">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Best Practices</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Follow these recommendations for optimal WorkFlow usage</p>
+        <div class="mb-12 md:mb-16">
+            <div class="text-center mb-6 md:mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 md:mb-4">Best Practices</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base px-2">Follow these recommendations for optimal WorkFlow usage</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center">
-                    <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-sync-alt"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 text-center">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                        <i class="fas fa-sync-alt text-sm md:text-base"></i>
                     </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-3">Update Progress Daily</h4>
-                    <p class="text-gray-600 text-sm">Regular updates keep your project status accurate and actionable.</p>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2 md:mb-3">Update Progress Daily</h4>
+                    <p class="text-gray-600 text-xs md:text-sm">Regular updates keep your project status accurate and actionable.</p>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center">
-                    <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-user-check"></i>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 text-center">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                        <i class="fas fa-user-check text-sm md:text-base"></i>
                     </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-3">Keep Client Info Accurate</h4>
-                    <p class="text-gray-600 text-sm">Maintain up-to-date client details for better communication.</p>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2 md:mb-3">Keep Client Info Accurate</h4>
+                    <p class="text-gray-600 text-xs md:text-sm">Maintain up-to-date client details for better communication.</p>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center">
-                    <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-chart-line"></i>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 text-center">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                        <i class="fas fa-chart-line text-sm md:text-base"></i>
                     </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-3">Review Stats Weekly</h4>
-                    <p class="text-gray-600 text-sm">Weekly reviews help identify trends and improve productivity.</p>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2 md:mb-3">Review Stats Weekly</h4>
+                    <p class="text-gray-600 text-xs md:text-sm">Weekly reviews help identify trends and improve productivity.</p>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center">
-                    <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-check-double"></i>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 text-center">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                        <i class="fas fa-check-double text-sm md:text-base"></i>
                     </div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-3">Close Completed Projects</h4>
-                    <p class="text-gray-600 text-sm">Archive finished projects to stay organized and focused.</p>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2 md:mb-3">Close Completed Projects</h4>
+                    <p class="text-gray-600 text-xs md:text-sm">Archive finished projects to stay organized and focused.</p>
                 </div>
             </div>
         </div>
 
         <!-- FAQ Section -->
         <div id="faq" class="scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Common Questions</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Quick answers to frequently asked questions</p>
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 md:mb-4">Common Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base px-2">Quick answers to frequently asked questions</p>
             </div>
             
             <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
                 <!-- FAQ 1 -->
                 <div class="border-b border-gray-200">
-                    <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                    <button class="w-full px-4 md:px-6 py-4 md:py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-4 mt-0.5">
-                                <i class="fas fa-question"></i>
+                            <div class="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 md:mr-4 mt-0.5">
+                                <i class="fas fa-question text-xs md:text-sm"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-800">Do I need to create a client first?</h3>
-                                <p class="text-gray-600 mt-1">Yes. Every project must be associated with a client in WorkFlow.</p>
+                                <h3 class="text-base md:text-lg font-semibold text-gray-800">Do I need to create a client first?</h3>
+                                <p class="text-gray-600 mt-1 text-sm md:text-base">Yes. Every project must be associated with a client in WorkFlow.</p>
                             </div>
                         </div>
-                        <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                        <i class="fas fa-chevron-down text-gray-400 text-base md:text-lg"></i>
                     </button>
-                    <div class="px-6 pb-5 pl-18 hidden">
-                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-4">
-                            <p class="text-gray-700">Clients are the foundation of the WorkFlow system. Before creating any projects, you must first add at least one client. This ensures proper organization and allows you to track which projects belong to which clients.</p>
+                    <div class="px-4 md:px-6 pb-4 md:pb-5 pl-12 md:pl-18 hidden">
+                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-3 md:p-4">
+                            <p class="text-gray-700 text-sm md:text-base">Clients are the foundation of the WorkFlow system. Before creating any projects, you must first add at least one client. This ensures proper organization and allows you to track which projects belong to which clients.</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- FAQ 2 -->
                 <div class="border-b border-gray-200">
-                    <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                    <button class="w-full px-4 md:px-6 py-4 md:py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-4 mt-0.5">
-                                <i class="fas fa-edit"></i>
+                            <div class="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 md:mr-4 mt-0.5">
+                                <i class="fas fa-edit text-xs md:text-sm"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-800">Can I edit a project later?</h3>
-                                <p class="text-gray-600 mt-1">Yes. Projects and plans can be updated anytime.</p>
+                                <h3 class="text-base md:text-lg font-semibold text-gray-800">Can I edit a project later?</h3>
+                                <p class="text-gray-600 mt-1 text-sm md:text-base">Yes. Projects and plans can be updated anytime.</p>
                             </div>
                         </div>
-                        <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                        <i class="fas fa-chevron-down text-gray-400 text-base md:text-lg"></i>
                     </button>
-                    <div class="px-6 pb-5 pl-18 hidden">
-                        <div class="bg-green-50 border border-green-100 rounded-lg p-4">
-                            <p class="text-gray-700">WorkFlow is designed for flexibility. You can edit project details, update tasks, modify deadlines, and adjust priorities at any time. Simply navigate to the project you want to edit and click the "Edit" button.</p>
+                    <div class="px-4 md:px-6 pb-4 md:pb-5 pl-12 md:pl-18 hidden">
+                        <div class="bg-green-50 border border-green-100 rounded-lg p-3 md:p-4">
+                            <p class="text-gray-700 text-sm md:text-base">WorkFlow is designed for flexibility. You can edit project details, update tasks, modify deadlines, and adjust priorities at any time. Simply navigate to the project you want to edit and click the "Edit" button.</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- FAQ 3 -->
                 <div class="border-b border-gray-200">
-                    <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                    <button class="w-full px-4 md:px-6 py-4 md:py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-4 mt-0.5">
-                                <i class="fas fa-shield-alt"></i>
+                            <div class="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 md:mr-4 mt-0.5">
+                                <i class="fas fa-shield-alt text-xs md:text-sm"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-800">Is my data safe?</h3>
-                                <p class="text-gray-600 mt-1">Yes. Your data is stored securely and only accessible to you.</p>
+                                <h3 class="text-base md:text-lg font-semibold text-gray-800">Is my data safe?</h3>
+                                <p class="text-gray-600 mt-1 text-sm md:text-base">Yes. Your data is stored securely and only accessible to you.</p>
                             </div>
                         </div>
-                        <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                        <i class="fas fa-chevron-down text-gray-400 text-base md:text-lg"></i>
                     </button>
-                    <div class="px-6 pb-5 pl-18 hidden">
-                        <div class="bg-purple-50 border border-purple-100 rounded-lg p-4">
-                            <p class="text-gray-700">Security is our top priority. We use industry-standard encryption, regular backups, and secure servers to protect your data. Your information is private and only accessible through your authenticated account.</p>
+                    <div class="px-4 md:px-6 pb-4 md:pb-5 pl-12 md:pl-18 hidden">
+                        <div class="bg-purple-50 border border-purple-100 rounded-lg p-3 md:p-4">
+                            <p class="text-gray-700 text-sm md:text-base">Security is our top priority. We use industry-standard encryption, regular backups, and secure servers to protect your data. Your information is private and only accessible through your authenticated account.</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- FAQ 4 -->
                 <div>
-                    <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                    <button class="w-full px-4 md:px-6 py-4 md:py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-4 mt-0.5">
-                                <i class="fas fa-users"></i>
+                            <div class="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 md:mr-4 mt-0.5">
+                                <i class="fas fa-users text-xs md:text-sm"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-800">Can I collaborate with team members?</h3>
-                                <p class="text-gray-600 mt-1">Team collaboration features are coming soon!</p>
+                                <h3 class="text-base md:text-lg font-semibold text-gray-800">Can I collaborate with team members?</h3>
+                                <p class="text-gray-600 mt-1 text-sm md:text-base">Team collaboration features are coming soon!</p>
                             </div>
                         </div>
-                        <i class="fas fa-chevron-down text-gray-400 text-lg"></i>
+                        <i class="fas fa-chevron-down text-gray-400 text-base md:text-lg"></i>
                     </button>
-                    <div class="px-6 pb-5 pl-18 hidden">
-                        <div class="bg-amber-50 border border-amber-100 rounded-lg p-4">
-                            <p class="text-gray-700">We're actively working on team collaboration features. In future updates, you'll be able to invite team members, assign tasks, and collaborate in real-time. Stay tuned for announcements!</p>
+                    <div class="px-4 md:px-6 pb-4 md:pb-5 pl-12 md:pl-18 hidden">
+                        <div class="bg-amber-50 border border-amber-100 rounded-lg p-3 md:p-4">
+                            <p class="text-gray-700 text-sm md:text-base">We're actively working on team collaboration features. In future updates, you'll be able to invite team members, assign tasks, and collaborate in real-time. Stay tuned for announcements!</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Additional Help -->
-            <div class="mt-8 text-center">
-                <p class="text-gray-600 mb-6">Still have questions? We're here to help!</p>
-                <a href="{% url 'dashboard:contact' %}" class="inline-flex items-center bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg">
+            <div class="mt-6 md:mt-8 text-center">
+                <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Still have questions? We're here to help!</p>
+                <a href="{% url 'dashboard:contact' %}" class="inline-flex items-center bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 md:px-8 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg text-sm md:text-base">
                     <i class="fas fa-headset mr-2"></i> Contact Support
                 </a>
             </div>
@@ -513,63 +535,131 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer class="bg-gray-800 text-white mt-12 md:mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div>
-                    <div class="flex items-center mb-6">
+                    <div class="flex items-center mb-4 md:mb-6">
                         <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-primary-500 to-primary-600 mr-3"></div>
                         <span class="text-xl font-bold">WorkFlow</span>
                     </div>
-                    <p class="text-gray-400 text-sm">
+                    <p class="text-gray-400 text-xs md:text-sm">
                         Modern project management for developers and freelancers.
                     </p>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Product</h4>
-                    <ul class="space-y-3">
-                        <li><a href="{% url 'dashboard:home' %}" class="text-gray-400 hover:text-white transition-colors duration-300">Features</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Pricing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">API</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Documentation</a></li>
+                    <h4 class="text-base md:text-lg font-semibold mb-4 md:mb-6">Product</h4>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="{% url 'dashboard:home' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">API</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Documentation</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Company</h4>
-                    <ul class="space-y-3">
-                        <li><a href="{% url 'dashboard:about' %}" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
-                        <li><a href="{% url 'dashboard:contact' %}" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Careers</a></li>
+                    <h4 class="text-base md:text-lg font-semibold mb-4 md:mb-6">Company</h4>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="{% url 'dashboard:about' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">About</a></li>
+                        <li><a href="{% url 'dashboard:contact' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Careers</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Help & Support</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Help Center</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">User Guides</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Video Tutorials</a></li>
-                        <li><a href="{% url 'dashboard:contact' %}" class="text-gray-400 hover:text-white transition-colors duration-300">Contact Support</a></li>
+                    <h4 class="text-base md:text-lg font-semibold mb-4 md:mb-6">Help & Support</h4>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">User Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Video Tutorials</a></li>
+                        <li><a href="{% url 'dashboard:contact' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Contact Support</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="mt-12 pt-8 border-t border-gray-700">
+            <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-700">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                    <div class="text-gray-400 text-xs md:text-sm mb-4 md:mb-0">
                         &copy; 2026 WorkFlow. All rights reserved.
                     </div>
-                    <!-- <div class="flex items-center space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Cookie Policy</a>
+                    <!-- <div class="flex items-center space-x-4 md:space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white text-xs md:text-sm transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xs md:text-sm transition-colors duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xs md:text-sm transition-colors duration-300">Cookie Policy</a>
                     </div> -->
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Change icon based on menu state
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInsideMenu = mobileMenu.contains(event.target);
+                const isClickOnButton = mobileMenuButton.contains(event.target);
+                
+                if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // FAQ Accordion functionality
+            const faqButtons = document.querySelectorAll('#faq button');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
+                    
+                    // Toggle content visibility
+                    content.classList.toggle('hidden');
+                    
+                    // Rotate icon
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+    
+    <style>
+        .rotate-180 {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+        }
+    </style>
 </body>
 </html>

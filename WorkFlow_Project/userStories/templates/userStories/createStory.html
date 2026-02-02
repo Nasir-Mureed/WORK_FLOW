@@ -29,29 +29,29 @@
     <div class="min-h-screen">
         <!-- Header -->
         <header class="bg-white border-b border-gray-200 shadow-sm">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center py-4">
+            <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+                <div class="flex justify-between items-center py-3 sm:py-4">
                     <div class="flex items-center">
                         <a href="{% url 'userStories:displayUserStories' id %}" class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300">
-                            <i class="fas fa-arrow-left mr-2"></i>
-                            <span class="font-medium">Back to User Stories</span>
+                            <i class="fas fa-arrow-left mr-1 sm:mr-2 text-sm"></i>
+                            <span class="font-medium text-xs sm:text-sm md:text-base">Back to User Stories</span>
                         </a>
                     </div>
-                    <div class="text-lg font-semibold text-gray-800">
-                        <i class="fas fa-plus-circle mr-2 text-primary-600"></i> Create User Story
+                    <div class="text-base sm:text-lg font-semibold text-gray-800">
+                         Create User Story
                     </div>
                 </div>
             </div>
         </header>
 
         <!-- Main Content -->
-        <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 md:py-8">
             <!-- Page Header -->
-            <div class="mb-8">
+            <div class="mb-6 sm:mb-8">
                 <div class="flex flex-col md:flex-row md:items-center justify-between">
                     <div>
-                        <h1 class="text-3xl font-bold text-gray-800">Create New User Story</h1>
-                        <p class="text-gray-600 mt-2">Define a user story to capture specific requirements</p>
+                        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">Create New User Story</h1>
+                        <p class="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">Define a user story to capture specific requirements</p>
                     </div>
                 </div>
             </div>
@@ -61,23 +61,23 @@
                 <!-- Form Card -->
                 <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
                     <!-- Form Header -->
-                    <div class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200">
-                        <h2 class="text-xl font-semibold text-gray-800 flex items-center">
-                            <i class="fas fa-book mr-2 text-primary-600"></i> User Story Details
+                    <div class="bg-gradient-to-r from-primary-50 to-blue-50 px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-b border-gray-200">
+                        <h2 class="text-lg sm:text-xl font-semibold text-gray-800 flex items-center">
+                            <i class="fas fa-book mr-2 text-primary-600 text-sm sm:text-base"></i> User Story Details
                         </h2>
-                        <p class="text-sm text-gray-600 mt-1">Define what the user needs and why</p>
+                        <p class="text-sm text-gray-600 mt-1 text-xs sm:text-sm">Define what the user needs and why</p>
                     </div>
 
                     <!-- Form Content -->
-                    <div class="p-6 md:p-8">
-                        <form action="{% url 'userStories:createStory' id %}" method="POST" class="space-y-6">
+                    <div class="p-4 sm:p-5 md:p-6 lg:p-8">
+                        <form action="{% url 'userStories:createStory' id %}" method="POST" class="space-y-4 sm:space-y-5 md:space-y-6">
                             {% csrf_token %}
                             
                             <!-- User Story Description -->
                             <div>
-                                <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                                <label for="description" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                                     <span class="flex items-center">
-                                        <i class="fas fa-align-left mr-2 text-primary-600"></i> User Story Description
+                                        User Story Description
                                         <span class="ml-1 text-red-500">*</span>
                                     </span>
                                 </label>
@@ -88,36 +88,27 @@
                                         rows="4"
                                         placeholder="As a [type of user], I want [some goal] so that [some reason]..."
                                         required
-                                        class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                                        class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                                     ></textarea>
-                                    <div class="absolute left-3 top-3.5 text-gray-400">
-                                        <i class="fas fa-comment-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="mt-2 flex items-center justify-between">
-                                    <p class="text-xs text-gray-500">Use the standard format: "As a [user], I want [action], so that [benefit]"</p>
+                                    
                                 </div>
                             </div>                           
 
-                       
-
-                            
-
                             <!-- Form Actions -->
-                            <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-5 md:pt-6 border-t border-gray-200">
                                 <button
                                     type="submit"
-                                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center"
+                                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center text-sm sm:text-base"
                                 >
-                                    <i class="fas fa-save mr-2"></i> Create User Story
+                                     Create User Story
                                 </button>
                                 
                                 <a href="{% url 'userStories:displayUserStories' id %}" class="w-full sm:w-auto">
                                     <button
                                         type="button"
-                                        class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center"
+                                        class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center text-sm sm:text-base"
                                     >
-                                        <i class="fas fa-times mr-2"></i> Cancel
+                                        <i class="fas fa-times mr-1 sm:mr-2 text-sm"></i> Cancel
                                     </button>
                                 </a>
                             </div>
@@ -126,30 +117,30 @@
                 </div>
 
                 <!-- User Story Guidelines -->
-                <div class="mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-6">
+                <div class="mt-6 sm:mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-4 sm:p-5 md:p-6">
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center">
+                            <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center text-sm sm:text-base">
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
                         </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Writing Effective User Stories</h3>
-                            <ul class="text-gray-600 space-y-2">
+                        <div class="ml-3 sm:ml-4">
+                            <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">Writing Effective User Stories</h3>
+                            <ul class="text-gray-600 space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                                     <span><strong>Use the standard format:</strong> "As a [user], I want [action], so that [benefit]"</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                                     <span><strong>Keep it simple:</strong> One story should represent a single piece of functionality</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                                     <span><strong>Be specific:</strong> Clearly define who, what, and why</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                                     <span><strong>Add acceptance criteria:</strong> Define what "done" looks like</span>
                                 </li>
                             </ul>
@@ -158,19 +149,19 @@
                 </div>
 
                 <!-- Example Stories -->
-                <div class="mt-8 bg-white rounded-xl border border-gray-200 p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                        <i class="fas fa-lightbulb mr-2 text-primary-600"></i> Example User Stories
+                <div class="mt-6 sm:mt-8 bg-white rounded-xl border border-gray-200 p-4 sm:p-5 md:p-6">
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center">
+                        <i class="fas fa-lightbulb mr-2 text-primary-600 text-sm sm:text-base"></i> Example User Stories
                     </h3>
-                    <div class="space-y-4">
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-sm text-gray-700 font-medium">"As a registered user, I want to reset my password, so that I can regain access to my account if I forget it."</p>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-xs sm:text-sm text-gray-700 font-medium">"As a registered user, I want to reset my password, so that I can regain access to my account if I forget it."</p>
                         </div>
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-sm text-gray-700 font-medium">"As an admin, I want to export user data to CSV, so that I can analyze it in external tools."</p>
+                        <div class="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-xs sm:text-sm text-gray-700 font-medium">"As an admin, I want to export user data to CSV, so that I can analyze it in external tools."</p>
                         </div>
-                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                            <p class="text-sm text-gray-700 font-medium">"As a customer, I want to filter products by price range, so that I can find items within my budget."</p>
+                        <div class="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <p class="text-xs sm:text-sm text-gray-700 font-medium">"As a customer, I want to filter products by price range, so that I can find items within my budget."</p>
                         </div>
                     </div>
                 </div>
@@ -178,17 +169,20 @@
         </main>
 
         <!-- Footer -->
-        <footer class="mt-12 border-t border-gray-200 bg-white">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <footer class="mt-8 sm:mt-10 md:mt-12 border-t border-gray-200 bg-white">
+            <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-5 md:py-6">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-500 text-sm mb-4 md:mb-0">
-                        &copy; WorkFlow User Stories • Sprint #{{ id }}
+                    <div class="text-gray-500 text-xs sm:text-sm mb-3 md:mb-0 text-center md:text-left">
+                        &copy; WorkFlow User Stories • 
                     </div>
-                    <div class="flex items-center space-x-6">
-                        <a href="{% url 'userStories:displayUserStories' id %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">All Stories</a>
-                        <span class="text-gray-300">|</span>
-                       
-                        <a href="{% url 'dashboard:dashboard' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Dashboard</a>
+                    <div class="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-wrap justify-center">
+                        <a href="{% url 'userStories:displayUserStories' id %}" class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1">
+                            All Stories
+                        </a>
+                        <span class="text-gray-300 hidden sm:inline">|</span>
+                        <a href="{% url 'dashboard:dashboard' %}" class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1">
+                            Dashboard
+                        </a>
                     </div>
                 </div>
             </div>

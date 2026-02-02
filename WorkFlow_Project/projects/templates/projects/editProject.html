@@ -29,70 +29,62 @@
     <div class="min-h-screen">
       <!-- Header -->
       <header class="bg-white border-b border-gray-200 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center py-4">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+          <div class="flex justify-between items-center py-3 sm:py-4">
             <div class="flex items-center">
-              <a href="{% url 'projects:projectDetail' project.id %}" class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300 mr-6">
-                <i class="fas fa-arrow-left mr-2"></i>
-                <span class="font-medium">Back to Project</span>
+              <a href="{% url 'projects:projectDetail' project.id %}" class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300 mr-3 sm:mr-4 md:mr-6">
+                <i class="fas fa-arrow-left mr-1 sm:mr-2 text-sm"></i>
+                <span class="font-medium text-xs sm:text-sm md:text-base">Back to Project</span>
               </a>
             </div>
-            <div class="text-lg font-semibold text-gray-800">
-              <i class="fas fa-edit mr-2 text-primary-600"></i> Edit Project
+            <div class="text-base sm:text-lg font-semibold text-gray-800">
+              <i class="fas fa-edit mr-1 sm:mr-2 text-primary-600 text-sm sm:text-base"></i> Edit Project
             </div>
           </div>
         </div>
       </header>
 
       <!-- Main Content -->
-      <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 md:py-8">
         <!-- Page Header -->
-        <div class="mb-8">
+        <div class="mb-6 sm:mb-8">
           <div class="flex flex-col md:flex-row md:items-center justify-between">
             <div>
-              <h1 class="text-3xl font-bold text-gray-800">Edit Project</h1>
-              <p class="text-gray-600 mt-2">Update the details for "{{ project.title }}"</p>
+              <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">Edit Project</h1>
+              <p class="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">Update the details for "{{ project.title }}"</p>
             </div>
-            <!-- <div class="mt-4 md:mt-0">
-              <div class="inline-flex items-center bg-primary-50 text-primary-700 rounded-lg px-4 py-2">
-                <i class="fas fa-project-diagram mr-2"></i>
-                <span>Project ID: #{{ project.id }}</span>
-              </div>
-            </div> -->
           </div>
         </div>
 
-        <!-- Conditional Check for Project -->
-      
         <!-- Form Container -->
         <div class="max-w-4xl mx-auto">
           <!-- Form Card -->
           <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
             <!-- Form Header -->
-            <div class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200">
-              <div class="flex items-center justify-between">
+            <div class="bg-gradient-to-r from-primary-50 to-blue-50 px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-b border-gray-200">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between">
                 <div>
-                  <h2 class="text-xl font-semibold text-gray-800 flex items-center">
-                    <i class="fas fa-edit mr-2 text-primary-600"></i> Update Project Information
+                  <h2 class="text-lg sm:text-xl font-semibold text-gray-800 flex items-center">
+                    <i class="fas fa-edit mr-2 text-primary-600 text-sm sm:text-base"></i> Update Project Information
                   </h2>
-                  <p class="text-sm text-gray-600 mt-1">Modify the project details below</p>
+                  <p class="text-sm text-gray-600 mt-1 text-xs sm:text-sm">Modify the project details below</p>
                 </div>
-                <div class="text-sm text-gray-500">
+                <div class="mt-2 sm:mt-0 text-xs sm:text-sm text-gray-500">
                   Client: <span class="font-medium">{{ project.client.name|default:"No client assigned" }}</span>
                 </div>
               </div>
             </div>
 
             <!-- Form Content -->
-            <div class="p-6 md:p-8">
-              <form action="{% url 'projects:editProject' project.id %}" method="POST" class="space-y-6">
+            <div class="p-4 sm:p-5 md:p-6 lg:p-8">
+              <form action="{% url 'projects:editProject' project.id %}" method="POST" class="space-y-4 sm:space-y-5 md:space-y-6">
                 {% csrf_token %}
                 
                 <!-- Project Title -->
                 <div>
-                  <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="title" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     <span class="flex items-center">
-                      <i class="fas fa-heading mr-2 text-primary-600"></i> Project Title
+                      <i class="fas fa-heading mr-2 text-primary-600 text-sm"></i> Project Title
                       <span class="ml-1 text-red-500">*</span>
                     </span>
                   </label>
@@ -104,20 +96,16 @@
                       value="{{ project.title }}"
                       placeholder="Enter project title"
                       required
-                      class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                      class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                     />
-                    <div class="absolute left-3 top-3.5 text-gray-400">
-                      <i class="fas fa-heading"></i>
-                    </div>
                   </div>
-                  <p class="mt-1 text-xs text-gray-500">Current: <span class="font-medium">{{ project.title }}</span></p>
                 </div>
 
                 <!-- Project Description -->
                 <div>
-                  <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="description" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     <span class="flex items-center">
-                      <i class="fas fa-align-left mr-2 text-primary-600"></i> Project Description
+                      <i class="fas fa-align-left mr-2 text-primary-600 text-sm"></i> Project Description
                     </span>
                   </label>
                   <textarea
@@ -125,27 +113,17 @@
                     name="description"
                     rows="4"
                     placeholder="Describe the project scope, objectives, and key deliverables..."
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                   >{{ project.description|default:"" }}</textarea>
-                  <div class="mt-1 flex items-center justify-between">
-                    <p class="text-xs text-gray-500">
-                      {% if project.description %}
-                        Current description shown above
-                      {% else %}
-                        No description currently set
-                      {% endif %}
-                    </p>
-                    <span class="text-xs text-gray-400">{{ project.description|length|default:0 }}/1000 characters</span>
-                  </div>
                 </div>
 
                 <!-- Budget & Financial Section -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                   <!-- Budget -->
                   <div>
-                    <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="budget" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                       <span class="flex items-center">
-                        <i class="fas fa-dollar-sign mr-2 text-primary-600"></i> Total Budget
+                        <i class="fas fa-dollar-sign mr-2 text-primary-600 text-sm"></i> Total Budget
                         <span class="ml-1 text-red-500">*</span>
                       </span>
                     </label>
@@ -162,17 +140,16 @@
                         step="0.01"
                         placeholder="0.00"
                         required
-                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        class="w-full pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">Current: <span class="font-medium">${{ project.budget }}</span></p>
                   </div>
 
                   <!-- Amount Paid -->
                   <div>
-                    <label for="paid" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="paid" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                       <span class="flex items-center">
-                        <i class="fas fa-money-check-alt mr-2 text-primary-600"></i> Amount Paid
+                        <i class="fas fa-money-check-alt mr-2 text-primary-600 text-sm"></i> Amount Paid
                         <span class="ml-1 text-red-500">*</span>
                       </span>
                     </label>
@@ -189,23 +166,20 @@
                         step="0.01"
                         placeholder="0.00"
                         required
-                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        class="w-full pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">Current: <span class="font-medium">${{ project.paid }}</span></p>
                   </div>
                 </div>
 
                 <!-- Progress Calculation -->
-                <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                  <div class="flex items-center justify-between mb-2">
-                    <span class="text-sm font-medium text-gray-700">Payment Progress</span>
-                    <span class="text-sm font-medium text-gray-800">{{ percent_paid }}</span>
-                    
+                <div class="bg-gray-50 rounded-lg p-3 sm:p-4 border border-gray-200">
+                  <div class="flex items-center justify-between mb-1.5 sm:mb-2">
+                    <span class="text-xs sm:text-sm font-medium text-gray-700">Payment Progress</span>
+                    <span class="text-xs sm:text-sm font-medium text-gray-800">{{ percent_paid }}</span>
                   </div>
-                  <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div class="bg-primary-600 h-2 rounded-full" style="width: {{ percent_paid }}">
-                    </div>
+                  <div class="w-full bg-gray-200 rounded-full h-1.5 sm:h-2">
+                    <div class="bg-primary-600 h-1.5 sm:h-2 rounded-full" style="width: {{ percent_paid }}"></div>
                   </div>
                   <div class="mt-2 flex justify-between text-xs text-gray-500">
                     <span>Paid: ${{ project.paid }}</span>
@@ -215,12 +189,12 @@
                 </div>
 
                 <!-- Dates Section -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                   <!-- Start Date -->
                   <div>
-                    <label for="startDate" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="startDate" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                       <span class="flex items-center">
-                        <i class="fas fa-calendar-plus mr-2 text-primary-600"></i> Start Date
+                        <i class="fas fa-calendar-plus mr-2 text-primary-600 text-sm"></i> Start Date
                       </span>
                     </label>
                     <div class="relative">
@@ -229,22 +203,19 @@
                         id="startDate"
                         name="startDate"
                         value="{{ project.startDate|date:'Y-m-d' }}"
-                        class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
-                      <div class="absolute left-3 top-3.5 text-gray-400">
+                      <div class="absolute left-3 top-2.5 sm:top-3.5 text-gray-400 text-sm sm:text-base">
                         <i class="fas fa-calendar-alt"></i>
                       </div>
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">
-                      Current: <span class="font-medium">{{ project.startDate|default:"Not set" }}</span>
-                    </p>
                   </div>
 
                   <!-- Deadline -->
                   <div>
-                    <label for="deadline" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="deadline" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                       <span class="flex items-center">
-                        <i class="fas fa-flag-checkered mr-2 text-primary-600"></i> Deadline
+                        <i class="fas fa-flag-checkered mr-2 text-primary-600 text-sm"></i> Deadline
                       </span>
                     </label>
                     <div class="relative">
@@ -253,84 +224,62 @@
                         id="deadline"
                         name="deadline"
                         value="{{ project.deadline|date:'Y-m-d' }}"
-                        class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
-                      <div class="absolute left-3 top-3.5 text-gray-400">
+                      <div class="absolute left-3 top-2.5 sm:top-3.5 text-gray-400 text-sm sm:text-base">
                         <i class="fas fa-calendar-times"></i>
                       </div>
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">
-                      Current: <span class="font-medium">{{ project.deadline|default:"Not set" }}</span>
-                    </p>
                   </div>
                 </div>
 
                 <!-- Project Status -->
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                  <label class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     <span class="flex items-center">
-                      <i class="fas fa-chart-line mr-2 text-primary-600"></i> Project Status
+                      <i class="fas fa-chart-line mr-2 text-primary-600 text-sm"></i> Project Status
                     </span>
                   </label>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      <div class="flex items-center">
-                      <input
-                        id="status"
-                        name="status"
-                        type="checkbox"
-                        class="h-6 w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                        {% if project.status %}checked{% endif %}
-                      />
-                      <label for="status" class="ml-2 block text-sm text-gray-700">
-                        Marked : Active   UnMarked : Inactive
-                      </label>
-                    </div>             
-                  </div>
-                </div>
-                  
-                    
-
-                <!-- Warning Message -->
-                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                  <div class="flex">
-                    <div class="flex-shrink-0">
-                      <i class="fas fa-exclamation-triangle text-amber-600"></i>
-                    </div>
-                    <div class="ml-3">
-                      <h3 class="text-sm font-medium text-amber-800">Important Note</h3>
-                      <div class="mt-2 text-sm text-amber-700">
-                        <p>Changing project details will update all associated tasks, milestones, and reports.</p>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="flex items-center">
+                    <input
+                      id="status"
+                      name="status"
+                      type="checkbox"
+                      class="h-5 w-5 sm:h-6 sm:w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                      {% if project.status %}checked{% endif %}
+                    />
+                    <label for="status" class="ml-2 block text-xs sm:text-sm text-gray-700">
+                      Marked : Active   UnMarked : Inactive
+                    </label>
+                  </div>             
                 </div>
 
                 <!-- Form Actions -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-5 md:pt-6 border-t border-gray-200">
                   <button
                     type="submit"
                     name="save"
                     id="save"
-                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center"
+                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center text-sm sm:text-base"
                   >
-                    <i class="fas fa-save mr-2"></i> Update Project
+                    Save changes
                   </button>
                   
                   <a href="{% url 'projects:projectDetail' project.id %}" class="w-full sm:w-auto">
                     <button
                       type="button"
-                      class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center"
+                      class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center text-sm sm:text-base"
                     >
-                      <i class="fas fa-times mr-2"></i> Cancel
+                      <i class="fas fa-times mr-1 sm:mr-2 text-sm"></i> Cancel
                     </button>
                   </a>
                   
                   <a href="{% url 'projects:deleteProject' project.id %}" class="w-full sm:w-auto">
                     <button
                       type="button"
-                      class="w-full bg-white hover:bg-red-50 text-red-700 font-semibold py-3 px-8 rounded-lg border border-red-300 hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300 flex items-center justify-center"
+                      class="w-full bg-white hover:bg-red-50 text-red-700 font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg border border-red-300 hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300 flex items-center justify-center text-sm sm:text-base"
                     >
-                      <i class="fas fa-trash-alt mr-2"></i> Delete Project
+                      <i class="fas fa-trash-alt mr-1 sm:mr-2 text-sm"></i> Delete Project
                     </button>
                   </a>
                 </div>
@@ -339,27 +288,23 @@
           </div>
 
           <!-- Project Summary -->
-          <div class="mt-8 grid grid-cols-1 md:grid-cols-1 gap-6">
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                <i class="fas fa-info-circle mr-2 text-primary-600"></i> Project Summary
+          <div class="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-1 gap-4 sm:gap-5 md:gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 sm:p-5 md:p-6">
+              <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center">
+                <i class="fas fa-info-circle mr-2 text-primary-600 text-sm sm:text-base"></i> Project Summary
               </h3>
-              <div class="space-y-3">
+              <div class="space-y-2 sm:space-y-3">
                 <div class="flex justify-between">
-                  <span class="text-gray-600">Created</span>
-                  <span class="font-medium text-gray-800">{{ project.startDate|date:"M d, Y" }}</span>
-                </div>
-                <!-- <div class="flex justify-between">
-                  <span class="text-gray-600">Last Updated</span>
-                  <span class="font-medium text-gray-800">Today</span>
-                </div> -->
-                <div class="flex justify-between">
-                  <span class="text-gray-600">Client</span>
-                  <span class="font-medium text-gray-800">{{ project.client.name|default:"Not assigned" }}</span>
+                  <span class="text-gray-600 text-xs sm:text-sm">Created</span>
+                  <span class="font-medium text-gray-800 text-xs sm:text-sm">{{ project.startDate|date:"M d, Y" }}</span>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-gray-600">Duration</span>
-                  <span class="font-medium text-gray-800">
+                  <span class="text-gray-600 text-xs sm:text-sm">Client</span>
+                  <span class="font-medium text-gray-800 text-xs sm:text-sm">{{ project.client.name|default:"Not assigned" }}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600 text-xs sm:text-sm">Duration</span>
+                  <span class="font-medium text-gray-800 text-xs sm:text-sm">
                     {% if project.startDate and project.deadline %}
                       {{ project.startDate|timesince:project.deadline }}
                     {% else %}
@@ -369,56 +314,33 @@
                 </div>
               </div>
             </div>
-            
-            <!-- <div class="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                <i class="fas fa-history mr-2 text-primary-600"></i> Recent Changes
-              </h3>
-              <div class="space-y-4">
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3">
-                    <i class="fas fa-edit text-sm"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-700">Editing now</p>
-                    <p class="text-xs text-gray-500">Current session</p>
-                  </div>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3">
-                    <i class="fas fa-user-check text-sm"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-700">Last updated by</p>
-                    <p class="text-xs text-gray-500">You • 2 days ago</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
-        
-        
-        
       </main>
 
       <!-- Footer -->
-      <footer class="mt-12 border-t border-gray-200 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <footer class="mt-8 sm:mt-10 md:mt-12 border-t border-gray-200 bg-white">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-5 md:py-6">
           <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="text-gray-500 text-sm mb-4 md:mb-0">
-              &copy; WorkFlow Project Management • Editing Project #{{ project.id|default:"Unknown" }}
+            <div class="text-gray-500 text-xs sm:text-sm mb-3 md:mb-0 text-center md:text-left">
+              &copy; WorkFlow Project Management • Editing Project: "{{ project.title }}"
             </div>
-            <div class="flex items-center space-x-6">
-              <a href="{% url 'dashboard:home' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Home</a>
-              <span class="text-gray-300">|</span>
-              <a href="{% url 'projects:showProjects' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">All Projects</a>
-              <span class="text-gray-300">|</span>
-              <a href="{% url 'dashboard:dashboard' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Dashboard</a>
+            <div class="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-wrap justify-center">
+              <a href="{% url 'dashboard:home' %}" class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1">
+                Home
+              </a>
+              <span class="text-gray-300 hidden sm:inline">|</span>
+              <a href="{% url 'projects:showProjects' %}" class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1">
+                All Projects
+              </a>
+              <span class="text-gray-300 hidden sm:inline">|</span>
+              <a href="{% url 'dashboard:dashboard' %}" class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1">
+                Dashboard
+              </a>
             </div>
           </div>
         </div>
       </footer>
-      </div>
+    </div>
   </body>
 </html>

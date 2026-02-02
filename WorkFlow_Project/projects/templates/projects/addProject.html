@@ -29,35 +29,29 @@
     <div class="min-h-screen">
       <!-- Header -->
       <header class="bg-white border-b border-gray-200 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center py-4">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+          <div class="flex justify-between items-center py-3 sm:py-4">
             <div class="flex items-center">
-              <a href="{% url 'projects:showProjects' %}" class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300 mr-6">
-                <i class="fas fa-arrow-left mr-2"></i>
-                <span class="font-medium">Back to Projects</span>
+              <a href="{% url 'projects:showProjects' %}" class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300 mr-3 sm:mr-4 md:mr-6">
+                <i class="fas fa-arrow-left mr-1 sm:mr-2 text-sm"></i>
+                <span class="font-medium text-xs sm:text-sm md:text-base">Back to Projects</span>
               </a>
             </div>
-            <div class="text-lg font-semibold text-gray-800">
-              <i class="fas fa-plus-circle mr-2 text-primary-600"></i> Create New Project
+            <div class="text-base sm:text-lg font-semibold text-gray-800">
+              <i class="fas fa-plus-circle mr-1 sm:mr-2 text-primary-600 text-sm sm:text-base"></i> Create New Project
             </div>
           </div>
         </div>
       </header>
 
       <!-- Main Content -->
-      <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 md:py-8">
         <!-- Page Header -->
-        <div class="mb-8">
+        <div class="mb-6 sm:mb-8">
           <div class="flex flex-col md:flex-row md:items-center justify-between">
             <div>
-              <h1 class="text-3xl font-bold text-gray-800">Create New Project</h1>
-              <p class="text-gray-600 mt-2">Fill in the project details to get started</p>
-            </div>
-            <div class="mt-4 md:mt-0">
-              <div class="inline-flex items-center bg-primary-50 text-primary-700 rounded-lg px-4 py-2">
-                <i class="fas fa-lightbulb mr-2"></i>
-                <span>All fields marked with * are required</span>
-              </div>
+              <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">Create New Project</h1>
+              <p class="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">Complete the form below to create a new project</p>
             </div>
           </div>
         </div>
@@ -67,23 +61,22 @@
           <!-- Form Card -->
           <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
             <!-- Form Header -->
-            <div class="bg-gradient-to-r from-primary-50 to-blue-50 px-6 py-4 border-b border-gray-200">
-              <h2 class="text-xl font-semibold text-gray-800 flex items-center">
-                <i class="fas fa-project-diagram mr-2 text-primary-600"></i> Project Information
+            <div class="bg-gradient-to-r from-primary-50 to-blue-50 px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-b border-gray-200">
+              <h2 class="text-lg sm:text-xl font-semibold text-gray-800 flex items-center">
+                <i class="fas fa-project-diagram mr-2 text-primary-600 text-sm sm:text-base"></i> Project Information
               </h2>
-              <p class="text-sm text-gray-600 mt-1">Complete the form below to create a new project</p>
             </div>
 
             <!-- Form Content -->
-            <div class="p-6 md:p-8">
-              <form action="{% url 'projects:addProject' %}" method="POST" class="space-y-6">
+            <div class="p-4 sm:p-5 md:p-6 lg:p-8">
+              <form action="{% url 'projects:addProject' %}" method="POST" class="space-y-4 sm:space-y-5 md:space-y-6">
                 {% csrf_token %}
                 
                 <!-- Project Title -->
                 <div>
-                  <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="title" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     <span class="flex items-center">
-                      <i class="fas fa-heading mr-2 text-primary-600"></i> Project Title
+                      <i class="fas fa-heading mr-2 text-primary-600 text-sm"></i> Project Title
                       <span class="ml-1 text-red-500">*</span>
                     </span>
                   </label>
@@ -92,22 +85,18 @@
                       type="text"
                       id="title"
                       name="title"
-                      placeholder="e.g., Website Redesign, Mobile App Development"
+                      placeholder="E.g. Website Redesign, Mobile App Development"
                       required
-                      class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                      class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                     />
-                    <div class="absolute left-3 top-3.5 text-gray-400">
-                      <i class="fas fa-heading"></i>
-                    </div>
                   </div>
-                  <p class="mt-1 text-xs text-gray-500">Give your project a clear and descriptive title</p>
                 </div>
 
                 <!-- Project Description -->
                 <div>
-                  <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="description" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     <span class="flex items-center">
-                      <i class="fas fa-align-left mr-2 text-primary-600"></i> Project Description
+                      <i class="fas fa-align-left mr-2 text-primary-600 text-sm"></i> Project Description
                     </span>
                   </label>
                   <textarea
@@ -115,18 +104,17 @@
                     name="description"
                     rows="4"
                     placeholder="Describe the project scope, objectives, and key deliverables..."
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                   ></textarea>
-                  <p class="mt-1 text-xs text-gray-500">Provide details about the project goals and requirements</p>
                 </div>
 
                 <!-- Budget & Financial Section -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                   <!-- Budget -->
                   <div>
-                    <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="budget" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                       <span class="flex items-center">
-                        <i class="fas fa-dollar-sign mr-2 text-primary-600"></i> Total Budget
+                        <i class="fas fa-dollar-sign mr-2 text-primary-600 text-sm"></i> Total Budget
                         <span class="ml-1 text-red-500">*</span>
                       </span>
                     </label>
@@ -142,17 +130,16 @@
                         step="0.01"
                         placeholder="0.00"
                         required
-                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        class="w-full pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">Total project budget in USD</p>
                   </div>
 
                   <!-- Amount Paid -->
                   <div>
-                    <label for="paid" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="paid" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                       <span class="flex items-center">
-                        <i class="fas fa-money-check-alt mr-2 text-primary-600"></i> Amount Paid
+                        <i class="fas fa-money-check-alt mr-2 text-primary-600 text-sm"></i> Amount Paid
                         <span class="ml-1 text-red-500">*</span>
                       </span>
                     </label>
@@ -168,25 +155,24 @@
                         step="0.01"
                         placeholder="0.00"
                         required
-                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        class="w-full pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">Amount already received for this project</p>
                   </div>
                 </div>
 
                 <!-- Client Selection -->
                 <div>
-                  <label for="client" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="client" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     <span class="flex items-center">
-                      <i class="fas fa-user-tie mr-2 text-primary-600"></i> Select Client
+                      <i class="fas fa-user-tie mr-2 text-primary-600 text-sm"></i> Select Client
                     </span>
                   </label>
                   <div class="relative">
                     <select
                       id="client"
                       name="client"
-                      class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 appearance-none"
+                      class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base appearance-none"
                     >
                       <option value="">Select a client...</option>
                       {% if clients %}
@@ -195,27 +181,27 @@
                         {% endfor %}
                       {% endif %}
                     </select>
-                    <div class="absolute left-3 top-3.5 text-gray-400">
+                    <div class="absolute left-3 top-2.5 sm:top-3.5 text-gray-400 text-sm sm:text-base">
                       <i class="fas fa-users"></i>
                     </div>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                      <i class="fas fa-chevron-down text-gray-400"></i>
+                      <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
                     </div>
                   </div>
                   <div class="mt-1 flex items-center justify-between">
                     <p class="text-xs text-gray-500">Assign this project to a client</p>
                     <a href="{% url 'clients:addClient' %}" class="text-xs text-primary-600 hover:text-primary-500 transition-colors duration-300">
-                      <i class="fas fa-plus mr-1"></i> Add New Client
+                      <i class="fas fa-plus mr-0.5 sm:mr-1 text-xs"></i> Add New Client
                     </a>
                   </div>
                   {% if not clients %}
                   <div class="mt-2 p-3 bg-amber-50 border border-amber-200 rounded-lg">
                     <div class="flex">
                       <div class="flex-shrink-0">
-                        <i class="fas fa-exclamation-triangle text-amber-600"></i>
+                        <i class="fas fa-exclamation-triangle text-amber-600 text-sm"></i>
                       </div>
                       <div class="ml-3">
-                        <p class="text-sm text-amber-700">No clients available. You need to create a client first.</p>
+                        <p class="text-xs sm:text-sm text-amber-700">No clients available. You need to create a client first.</p>
                       </div>
                     </div>
                   </div>
@@ -223,12 +209,12 @@
                 </div>
 
                 <!-- Dates Section -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                   <!-- Start Date -->
                   <div>
-                    <label for="startDate" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="startDate" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                       <span class="flex items-center">
-                        <i class="fas fa-calendar-plus mr-2 text-primary-600"></i> Start Date
+                        <i class="fas fa-calendar-plus mr-2 text-primary-600 text-sm"></i> Start Date
                       </span>
                     </label>
                     <div class="relative">
@@ -236,20 +222,19 @@
                         type="date"
                         id="startDate"
                         name="startDate"
-                        class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
-                      <div class="absolute left-3 top-3.5 text-gray-400">
+                      <div class="absolute left-3 top-2.5 sm:top-3.5 text-gray-400 text-sm sm:text-base">
                         <i class="fas fa-calendar-alt"></i>
                       </div>
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">Project Start date</p>
                   </div>
 
                   <!-- Deadline -->
                   <div>
-                    <label for="deadline" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="deadline" class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                       <span class="flex items-center">
-                        <i class="fas fa-flag-checkered mr-2 text-primary-600"></i> Deadline
+                        <i class="fas fa-flag-checkered mr-2 text-primary-600 text-sm"></i> Deadline
                       </span>
                     </label>
                     <div class="relative">
@@ -257,13 +242,12 @@
                         type="date"
                         id="deadline"
                         name="deadline"
-                        class="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300"
+                        class="w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-10 sm:pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-300 text-sm sm:text-base"
                       />
-                      <div class="absolute left-3 top-3.5 text-gray-400">
+                      <div class="absolute left-3 top-2.5 sm:top-3.5 text-gray-400 text-sm sm:text-base">
                         <i class="fas fa-calendar-times"></i>
                       </div>
                     </div>
-                    <p class="mt-1 text-xs text-gray-500">Project Completion deadline</p>
                   </div>
                 </div>
 
@@ -273,64 +257,31 @@
                     id="status"
                     name="status"
                     type="checkbox"
-                    class="h-6 w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                    class="h-5 w-5 sm:h-6 sm:w-6 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                     checked
                   />
-                  <label for="status" class="ml-2 block text-sm text-gray-700">
+                  <label for="status" class="ml-2 block text-xs sm:text-sm text-gray-700">
                      Marked : Active  --  UnMarked : Inactive
                   </label>
                 </div>
 
-                <!-- Additional Options -->
-                <!-- <div class="border-t border-gray-200 pt-6">
-                  <h3 class="text-lg font-medium text-gray-700 mb-4 flex items-center">
-                    <i class="fas fa-cog mr-2 text-primary-600"></i> Additional Options
-                  </h3>
-                  <div class="space-y-4">
-                    <div class="flex items-center">
-                      <input
-                        id="notifications"
-                        name="notifications"
-                        type="checkbox"
-                        class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                        checked
-                      />
-                      <label for="notifications" class="ml-2 block text-sm text-gray-700">
-                        Enable email notifications for project updates
-                      </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input
-                        id="milestones"
-                        name="milestones"
-                        type="checkbox"
-                        class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                        checked
-                      />
-                      <label for="milestones" class="ml-2 block text-sm text-gray-700">
-                        Create default project milestones
-                      </label>
-                    </div>
-                  </div>
-                </div> -->
-
                 <!-- Form Actions -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-5 md:pt-6 border-t border-gray-200">
                   <button
                     type="submit"
                     name="save"
                     id="save"
-                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center"
+                    class="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center text-sm sm:text-base"
                   >
-                    <i class="fas fa-save mr-2"></i> Create Project
+                    <i class="fas fa-save mr-1 sm:mr-2 text-sm"></i> Create Project
                   </button>
                   
                   <a href="{% url 'projects:showProjects' %}" class="w-full sm:w-auto">
                     <button
                       type="button"
-                      class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center"
+                      class="w-full bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2.5 sm:py-3 px-4 sm:px-6 md:px-8 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300 flex items-center justify-center text-sm sm:text-base"
                     >
-                      <i class="fas fa-times mr-2"></i> Cancel
+                      <i class="fas fa-times mr-1 sm:mr-2 text-sm"></i> Cancel
                     </button>
                   </a>
                 </div>
@@ -339,30 +290,30 @@
           </div>
 
           <!-- Help Card -->
-          <div class="mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-6">
+          <div class="mt-6 sm:mt-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl border border-primary-100 p-4 sm:p-5 md:p-6">
             <div class="flex">
               <div class="flex-shrink-0">
-                <div class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center text-sm sm:text-base">
                   <i class="fas fa-lightbulb"></i>
                 </div>
               </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">Tips for Creating Projects</h3>
-                <ul class="text-gray-600 space-y-2">
+              <div class="ml-3 sm:ml-4">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">Tips for Creating Projects</h3>
+                <ul class="text-gray-600 space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                   <li class="flex items-start">
-                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                     <span>Set realistic deadlines to ensure timely completion</span>
                   </li>
                   <li class="flex items-start">
-                    <i class="fas fa-check text-primary-600 mr-2 mt=0.5"></i>
+                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                     <span>Break down large projects into manageable milestones</span>
                   </li>
                   <li class="flex items-start">
-                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                     <span>Assign clear budgets to track financial performance</span>
                   </li>
                   <li class="flex items-start">
-                    <i class="fas fa-check text-primary-600 mr-2 mt-0.5"></i>
+                    <i class="fas fa-check text-primary-600 mr-1 sm:mr-2 mt-0.5 text-xs sm:text-sm"></i>
                     <span>Add detailed descriptions for team clarity</span>
                   </li>
                 </ul>
@@ -371,47 +322,45 @@
           </div>
 
           <!-- Next Steps -->
-          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white rounded-lg border border-gray-200 p-5 text-center">
-              <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-3">
-                <i class="fas fa-tasks"></i>
+          <div class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 sm:p-5 text-center">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                <i class="fas fa-tasks text-sm sm:text-base"></i>
               </div>
-              <h4 class="font-medium text-gray-800 mb-2">Add Tasks</h4>
-              <p class="text-sm text-gray-600">Break down your project into actionable tasks</p>
+              <h4 class="font-medium text-gray-800 mb-1 sm:mb-2 text-sm sm:text-base">Add Tasks</h4>
+              <p class="text-xs sm:text-sm text-gray-600">Break down your project into actionable tasks</p>
             </div>
             
-            <!-- <div class="bg-white rounded-lg border border-gray-200 p-5 text-center">
-              <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-3">
-                <i class="fas fa-user-friends"></i>
+            <div class="bg-white rounded-lg border border-gray-200 p-4 sm:p-5 text-center">
+              <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                <i class="fas fa-chart-line text-sm sm:text-base"></i>
               </div>
-              <h4 class="font-medium text-gray-800 mb-2">Assign Team</h4>
-              <p class="text-sm text-gray-600">Assign team members to specific tasks</p>
-            </div> -->
-            
-            <div class="bg-white rounded-lg border border-gray-200 p-5 text-center">
-              <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-3">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <h4 class="font-medium text-gray-800 mb-2">Track Progress</h4>
-              <p class="text-sm text-gray-600">Monitor project milestones and deadlines</p>
+              <h4 class="font-medium text-gray-800 mb-1 sm:mb-2 text-sm sm:text-base">Track Progress</h4>
+              <p class="text-xs sm:text-sm text-gray-600">Monitor project milestones and deadlines</p>
             </div>
           </div>
         </div>
       </main>
 
       <!-- Footer -->
-      <footer class="mt-12 border-t border-gray-200 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <footer class="mt-8 sm:mt-10 md:mt-12 border-t border-gray-200 bg-white">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-5 md:py-6">
           <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="text-gray-500 text-sm mb-4 md:mb-0">
+            <div class="text-gray-500 text-xs sm:text-sm mb-3 md:mb-0 text-center md:text-left">
               &copy; WorkFlow Project Creation
             </div>
-            <div class="flex items-center space-x-6">
-              <a href="{% url 'dashboard:home' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Home</a>
-              <span class="text-gray-300">|</span>
-              <a href="{% url 'projects:showProjects' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">All Projects</a>
-              <span class="text-gray-300">|</span>
-              <a href="{% url 'clients:clients' %}" class="text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300">Clients</a>
+            <div class="flex items-center space-x-3 sm:space-x-4 md:space-x-6 flex-wrap justify-center">
+              <a href="{% url 'dashboard:home' %}" class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1">
+                Home
+              </a>
+              <span class="text-gray-300 hidden sm:inline">|</span>
+              <a href="{% url 'projects:showProjects' %}" class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1">
+                All Projects
+              </a>
+              <span class="text-gray-300 hidden sm:inline">|</span>
+              <a href="{% url 'clients:clients' %}" class="text-xs sm:text-sm text-gray-600 hover:text-primary-600 transition-colors duration-300 py-1">
+                Clients
+              </a>
             </div>
           </div>
         </div>

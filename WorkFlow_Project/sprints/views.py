@@ -36,4 +36,4 @@ def editSprint(request,projectId,sprintId):
         sprint.isActive =bool(data.get('status')=="on")
         sprint.save()
         return redirect("projects:projectDetail",projectId)
-    return render(request,'sprints/editSprint.html' , {'today' : now ,'id':projectId ,'sprint':sprint })
+    return render(request,'sprints/editSprint.html' , {'id':projectId ,'sprint':sprint })
