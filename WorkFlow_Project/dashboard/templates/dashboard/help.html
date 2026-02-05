@@ -30,8 +30,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <a href="{% url 'dashboard:home' %}" class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-primary-600 to-primary-700 mr-3"></div>
+                    <a href="{% url 'dashboard:home' %}" class="flex items-center text-gray-800 hover:text-primary-600 transition-colors duration-300 gap-3">
+                        <div
+                            class="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow"
+                            >
+                            <i class="fas fa-project-diagram text-lg sm:text-xl"></i>
+                            </div>
                         <span class="text-xl font-bold">WorkFlow</span>
                     </a>
                 </div>
@@ -118,7 +122,7 @@
                             <div class="bg-green-50 border border-green-200 rounded-lg p-3 md:p-4 inline-block">
                                 <div class="flex items-center">
                                     <i class="fas fa-check-circle text-green-600 mr-2 text-sm md:text-base"></i>
-                                    <span class="text-green-800 font-medium text-sm md:text-base">Each project must be linked to a client.</span>
+                                    <span class="text-green-800 font-medium text-sm md:text-base">Each project may / may not be linked to a client.</span>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +286,7 @@
                                         <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
                                         </div>
-                                        <span class="text-gray-700 text-sm md:text-base">Update task status regularly (To Do → In Progress → Done)</span>
+                                        <span class="text-gray-700 text-sm md:text-base">Update task status regularly </span>
                                     </li>
                                     <li class="flex items-start">
                                         <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mr-3 mt-0.5">
@@ -337,12 +341,7 @@
                                         </div>
                                         <span class="text-gray-700 text-sm md:text-base">Review project completion rates and timelines</span>
                                     </li>
-                                    <li class="flex items-start">
-                                        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
-                                            <i class="fas fa-arrow-right text-xs"></i>
-                                        </div>
-                                        <span class="text-gray-700 text-sm md:text-base">Analyze workload distribution and team productivity</span>
-                                    </li>
+                                    
                                     <li class="flex items-start">
                                         <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 mt-0.5">
                                             <i class="fas fa-arrow-right text-xs"></i>
@@ -448,7 +447,7 @@
                             </div>
                             <div>
                                 <h3 class="text-base md:text-lg font-semibold text-gray-800">Do I need to create a client first?</h3>
-                                <p class="text-gray-600 mt-1 text-sm md:text-base">Yes. Every project must be associated with a client in WorkFlow.</p>
+                                <p class="text-gray-600 mt-1 text-sm md:text-base">No. Every project may or may not be associated with a client in WorkFlow.</p>
                             </div>
                         </div>
                         <i class="fas fa-chevron-down text-gray-400 text-base md:text-lg"></i>
@@ -502,25 +501,7 @@
                     </div>
                 </div>
                 
-                <!-- FAQ 4 -->
-                <div>
-                    <button class="w-full px-4 md:px-6 py-4 md:py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-3 md:mr-4 mt-0.5">
-                                <i class="fas fa-users text-xs md:text-sm"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-base md:text-lg font-semibold text-gray-800">Can I collaborate with team members?</h3>
-                                <p class="text-gray-600 mt-1 text-sm md:text-base">Team collaboration features are coming soon!</p>
-                            </div>
-                        </div>
-                        <i class="fas fa-chevron-down text-gray-400 text-base md:text-lg"></i>
-                    </button>
-                    <div class="px-4 md:px-6 pb-4 md:pb-5 pl-12 md:pl-18 hidden">
-                        <div class="bg-amber-50 border border-amber-100 rounded-lg p-3 md:p-4">
-                            <p class="text-gray-700 text-sm md:text-base">We're actively working on team collaboration features. In future updates, you'll be able to invite team members, assign tasks, and collaborate in real-time. Stay tuned for announcements!</p>
-                        </div>
-                    </div>
+                
                 </div>
             </div>
             
@@ -540,7 +521,6 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div>
                     <div class="flex items-center mb-4 md:mb-6">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-primary-500 to-primary-600 mr-3"></div>
                         <span class="text-xl font-bold">WorkFlow</span>
                     </div>
                     <p class="text-gray-400 text-xs md:text-sm">
@@ -552,9 +532,8 @@
                     <h4 class="text-base md:text-lg font-semibold mb-4 md:mb-6">Product</h4>
                     <ul class="space-y-2 md:space-y-3">
                         <li><a href="{% url 'dashboard:home' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Features</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Pricing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">API</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Documentation</a></li>
+                        <li><a href="{% url 'dashboard:dashboard' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Stats</a></li>
+
                     </ul>
                 </div>
                 
@@ -563,8 +542,7 @@
                     <ul class="space-y-2 md:space-y-3">
                         <li><a href="{% url 'dashboard:about' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">About</a></li>
                         <li><a href="{% url 'dashboard:contact' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Contact</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Careers</a></li>
+                        
                     </ul>
                 </div>
                 
@@ -573,7 +551,6 @@
                     <ul class="space-y-2 md:space-y-3">
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Help Center</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">User Guides</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Video Tutorials</a></li>
                         <li><a href="{% url 'dashboard:contact' %}" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm md:text-base">Contact Support</a></li>
                     </ul>
                 </div>
